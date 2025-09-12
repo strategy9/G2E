@@ -6,7 +6,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- iOS specific PWA enhancements -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#005B8C">
     <link rel="icon" href="data:,">
@@ -67,22 +67,7 @@
                 animation: rotate 30s linear infinite;
             }
 
-        /* iOS Safe Area Support */
-        @supports (padding-top: env(safe-area-inset-top)) {
-            .header {
-                padding-top: calc(1rem + env(safe-area-inset-top));
-            }
 
-            .container {
-                padding-top: calc(80px + env(safe-area-inset-top));
-                padding-left: calc(1rem + env(safe-area-inset-left));
-                padding-right: calc(1rem + env(safe-area-inset-right));
-            }
-
-            .footer {
-                padding-bottom: env(safe-area-inset-bottom);
-            }
-        }
 
         @keyframes rotate {
             from {
@@ -93,18 +78,50 @@
                 transform: rotate(360deg);
             }
         }
-        /* Header */
+
+        /* Header - with proper iOS PWA positioning */
         .header {
             background: rgba(26, 26, 46, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem;
-            position: fixed; /* Changed from sticky to fixed */
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 100;
             border-bottom: 2px solid var(--primary);
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            /* Default padding for non-iOS */
+            padding-top: 1rem;
+        }
+
+        /* iOS PWA specific adjustments */
+        @supports (padding-top: env(safe-area-inset-top)) {
+            .header {
+                /* Add iOS status bar height */
+                padding-top: calc(1rem + env(safe-area-inset-top));
+            }
+        }
+
+        /* For standalone PWA mode specifically */
+        @media all and (display-mode: standalone) {
+            .header {
+                /* Ensure header starts below status bar in PWA */
+                padding-top: calc(1rem + env(safe-area-inset-top, 20px));
+            }
+
+            .container {
+                /* Adjust container padding to account for header + status bar */
+                padding-top: calc(80px + env(safe-area-inset-top, 20px));
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            padding-top: 80px; /* Space for fixed header */
         }
 
         .header-content {
@@ -133,13 +150,7 @@
                 color: var(--accent);
                 font-weight: bold;
             }
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-            padding-top: 80px; /* Add space for fixed header */
-        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(64, 178, 227, 0.2) 0%, rgba(0, 91, 140, 0.1) 100%);
