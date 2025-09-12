@@ -1120,14 +1120,28 @@
         // Survey Response Counter
         let responseCount = parseInt(localStorage.getItem('surveyResponses') || '0');
         
-        function updateResponseCounter() {
+        // Update the updateResponseCounter function to use actual API data
+        async function updateResponseCounter() {
             const counterElement = document.querySelector('.counter-number');
+            const counterLabel = document.querySelector('.counter-label');
+    
             if (counterElement) {
-                counterElement.textContent = responseCount;
-                counterElement.style.animation = 'none';
-                setTimeout(() => {
-                    counterElement.style.animation = 'pulse 0.5s ease';
-                }, 10);
+                try {
+                    // Get actual stats from API
+                    const stats = await getSurveyStatistics(SURVEY_PUBLIC_ID);
+                    counterElement.textContent = stats.totalResponses;
+                    counterLabel.textContent = 'TOTAL RESPONSES';
+            
+                    // Add animation
+                    counterElement.style.animation = 'none';
+                    setTimeout(() => {
+                        counterElement.style.animation = 'pulse 0.5s ease';
+                    }, 10);
+                } catch (error) {
+                    // Fallback to localStorage count
+                    counterElement.textContent = responseCount;
+                    counterLabel.textContent = 'RESPONSES TODAY';
+                }
             }
         }
 
