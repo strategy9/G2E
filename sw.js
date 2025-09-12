@@ -4,8 +4,7 @@ const CACHE_DURATION = 60 * 1000; // 1 minute for API responses
 
 const urlsToCache = [
   '/G2E/',
-  '/G2E/index.html',
-  '/G2E/game.html'
+  '/G2E/index.html'
 ];
 
 self.addEventListener('install', event => {
