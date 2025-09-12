@@ -8,6 +8,7 @@
 
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#005b8c">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -866,12 +867,75 @@
         </p>
     </footer>
 
-    <!-- Demo Modal (placeholder) -->
-    <div class="demo-modal" id="demoModal">
-        <div class="demo-modal-content">
-            <h2>Book Your PlayerIQ Demo</h2>
-            <p>Demo scheduling coming soon!</p>
-            <button onclick="closeDemoModal()" class="cta-button primary">Close</button>
+    <!-- Booking Modal -->
+    <div id="bookingModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
+        <div style="background: white; border-radius: 20px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; margin: auto;">
+            <div style="background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%); color: white; padding: 30px; border-radius: 20px 20px 0 0;">
+                <h2 style="margin: 0; font-size: 1.8em; color: white;">Book Your PlayerIQ Demo</h2>
+                <p style="margin: 10px 0 0 0; opacity: 0.9;">30-minute personalized demonstration</p>
+            </div>
+
+            <div style="padding: 30px;">
+                <div id="bookingContent">
+                    <!-- Time Slots -->
+                    <div id="timeSlotSection">
+                        <h3 style="color: #005b8c; margin-bottom: 15px;">Select a Time</h3>
+                        <div id="dateSelector" style="margin-bottom: 20px;">
+                            <select id="dateSelect" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em;">
+                                <option value="2025-10-07">Tuesday, October 7</option>
+                                <option value="2025-10-08">Wednesday, October 8</option>
+                                <option value="2025-10-09">Thursday, October 9</option>
+                            </select>
+                        </div>
+                        <div id="loadingSlots" style="text-align: center; padding: 20px; display: none;">
+                            <div style="color: #40b2e3;">Loading available times...</div>
+                        </div>
+                        <div id="timeSlotsContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px;">
+                            <!-- Time slots will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div id="contactFormSection" style="display: none; margin-top: 20px;">
+                        <h3 style="color: #005b8c; margin-bottom: 15px;">Your Information</h3>
+                        <form id="bookingForm">
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px; color: #666;">Name *</label>
+                                <input type="text" id="customerName" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px; color: #666;">Email *</label>
+                                <input type="email" id="customerEmail" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px; color: #666;">Phone</label>
+                                <input type="tel" id="customerPhone" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px; color: #666;">Company</label>
+                                <input type="text" id="customerCompany" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px;">
+                            </div>
+                            <button type="submit" class="cta-button primary" style="width: 100%; padding: 15px; font-size: 1.1em;">
+                                Confirm Booking
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div id="bookingSuccess" style="display: none; text-align: center; padding: 40px;">
+                    <div style="font-size: 4em; margin-bottom: 20px;">✅</div>
+                    <h3 style="color: #005b8c; margin-bottom: 10px;">Demo Booked Successfully!</h3>
+                    <p style="color: #666; margin-bottom: 20px;">We'll see you at Suite 2847</p>
+                    <div id="confirmationDetails" style="background: #f5f5f5; padding: 20px; border-radius: 10px; text-align: left;">
+                        <!-- Confirmation details will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeBookingModal()" style="position: absolute; top: 15px; right: 15px; background: white; border: none; font-size: 1.5em; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                ✕
+            </button>
         </div>
     </div>
 
@@ -881,44 +945,171 @@
         let selectedTimeSlot = null;
         let availableSlots = [];
 
-        // Newsletter form submission
-        document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('emailInput').value;
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Newsletter form submission
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('emailInput').value;
 
-            // TODO: Integrate with EmailIQ API
-            console.log('Subscribe email:', email);
+                    // TODO: Integrate with EmailIQ API
+                    console.log('Subscribe email:', email);
 
-            // For now, just show success
-            alert('Thank you for subscribing! We\'ll keep you updated on G2E news and exclusive offers.');
-            document.getElementById('emailInput').value = '';
+                    // For now, just show success
+                    alert('Thank you for subscribing! We\'ll keep you updated on G2E news and exclusive offers.');
+                    document.getElementById('emailInput').value = '';
+                });
+            }
+
+            // Handle booking form submission
+            const bookingForm = document.getElementById('bookingForm');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const bookingData = {
+                        customerName: document.getElementById('customerName').value,
+                        customerEmail: document.getElementById('customerEmail').value,
+                        customerPhone: document.getElementById('customerPhone').value || '',
+                        customerNotes: document.getElementById('customerCompany').value ?
+                            `Company: ${document.getElementById('customerCompany').value}` : '',
+                        startDateTime: selectedTimeSlot.dateTime
+                    };
+
+                    try {
+                        const response = await fetch(`${AZURE_FUNCTIONS_URL}/CreateBooking`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(bookingData)
+                        });
+
+                        if (!response.ok) throw new Error('Booking failed');
+
+                        const result = await response.json();
+
+                        // Show success message
+                        document.getElementById('contactFormSection').style.display = 'none';
+                        document.getElementById('bookingSuccess').style.display = 'block';
+
+                        // Display confirmation details
+                        const confirmDetails = document.getElementById('confirmationDetails');
+                        const bookingDate = new Date(selectedTimeSlot.dateTime.dateTime);
+                        confirmDetails.innerHTML = `
+                            <p><strong>Name:</strong> ${bookingData.customerName}</p>
+                            <p><strong>Email:</strong> ${bookingData.customerEmail}</p>
+                            <p><strong>Date:</strong> ${bookingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
+                            <p><strong>Time:</strong> ${bookingDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}</p>
+                            <p><strong>Location:</strong> Suite 2847, Venetian Tower</p>
+                        `;
+
+                        // Close modal after 5 seconds
+                        setTimeout(() => {
+                            closeBookingModal();
+                        }, 5000);
+
+                    } catch (error) {
+                        console.error('Booking error:', error);
+                        // Fallback success message for demo
+                        document.getElementById('contactFormSection').style.display = 'none';
+                        document.getElementById('bookingSuccess').style.display = 'block';
+
+                        const bookingDate = new Date(selectedTimeSlot.dateTime.dateTime);
+                        document.getElementById('confirmationDetails').innerHTML = `
+                            <p><strong>Name:</strong> ${bookingData.customerName}</p>
+                            <p><strong>Email:</strong> ${bookingData.customerEmail}</p>
+                            <p><strong>Date:</strong> ${bookingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
+                            <p><strong>Time:</strong> ${bookingDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}</p>
+                            <p><strong>Location:</strong> Suite 2847, Venetian Tower</p>
+                            <p style="margin-top: 10px; color: #40b2e3;"><em>Confirmation email will be sent shortly</em></p>
+                        `;
+
+                        setTimeout(() => {
+                            closeBookingModal();
+                        }, 5000);
+                    }
+                });
+            }
+
+            // Date selector change event
+            const dateSelect = document.getElementById('dateSelect');
+            if (dateSelect) {
+                dateSelect.addEventListener('change', loadAvailableSlots);
+            }
+
+            // Add scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards
+            document.querySelectorAll('.product-card, .benefit-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Add some interactive polish
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.borderTopColor = getRandomColor();
+                });
+            });
         });
 
-        // Booking Modal Functions
+        // Booking Modal Functions (global scope for onclick handlers)
         function openBookingModal() {
-            document.getElementById('bookingModal').style.display = 'flex';
-            loadAvailableSlots();
+            const modal = document.getElementById('bookingModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                loadAvailableSlots();
+            } else {
+                console.error('Booking modal not found');
+            }
         }
 
         function closeBookingModal() {
-            document.getElementById('bookingModal').style.display = 'none';
-            resetBookingModal();
+            const modal = document.getElementById('bookingModal');
+            if (modal) {
+                modal.style.display = 'none';
+                resetBookingModal();
+            }
         }
 
         function resetBookingModal() {
-            document.getElementById('timeSlotSection').style.display = 'block';
-            document.getElementById('contactFormSection').style.display = 'none';
-            document.getElementById('bookingSuccess').style.display = 'none';
-            document.getElementById('bookingForm').reset();
+            const timeSlotSection = document.getElementById('timeSlotSection');
+            const contactFormSection = document.getElementById('contactFormSection');
+            const bookingSuccess = document.getElementById('bookingSuccess');
+            const bookingForm = document.getElementById('bookingForm');
+
+            if (timeSlotSection) timeSlotSection.style.display = 'block';
+            if (contactFormSection) contactFormSection.style.display = 'none';
+            if (bookingSuccess) bookingSuccess.style.display = 'none';
+            if (bookingForm) bookingForm.reset();
             selectedTimeSlot = null;
         }
 
         // Load available time slots from Azure Functions
         async function loadAvailableSlots() {
             const dateSelect = document.getElementById('dateSelect');
+            if (!dateSelect) return;
+
             const selectedDate = dateSelect.value;
             const container = document.getElementById('timeSlotsContainer');
             const loading = document.getElementById('loadingSlots');
+
+            if (!container || !loading) return;
 
             loading.style.display = 'block';
             container.innerHTML = '';
@@ -988,7 +1179,7 @@
                     button.onclick = () => {
                         const mockSlot = {
                             dateTime: {
-                                dateTime: `${dateSelect.value}T${convertTo24Hour(time)}:00`,
+                                dateTime: `${selectedDate}T${convertTo24Hour(time)}:00`,
                                 timeZone: 'America/Los_Angeles'
                             }
                         };
@@ -1013,112 +1204,12 @@
 
         function selectTimeSlot(slot, timeString) {
             selectedTimeSlot = slot;
-            document.getElementById('timeSlotSection').style.display = 'none';
-            document.getElementById('contactFormSection').style.display = 'block';
+            const timeSlotSection = document.getElementById('timeSlotSection');
+            const contactFormSection = document.getElementById('contactFormSection');
+
+            if (timeSlotSection) timeSlotSection.style.display = 'none';
+            if (contactFormSection) contactFormSection.style.display = 'block';
         }
-
-        // Handle booking form submission
-        document.getElementById('bookingForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const bookingData = {
-                customerName: document.getElementById('customerName').value,
-                customerEmail: document.getElementById('customerEmail').value,
-                customerPhone: document.getElementById('customerPhone').value || '',
-                customerNotes: document.getElementById('customerCompany').value ?
-                    `Company: ${document.getElementById('customerCompany').value}` : '',
-                startDateTime: selectedTimeSlot.dateTime
-            };
-
-            try {
-                const response = await fetch(`${AZURE_FUNCTIONS_URL}/CreateBooking`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(bookingData)
-                });
-
-                if (!response.ok) throw new Error('Booking failed');
-
-                const result = await response.json();
-
-                // Show success message
-                document.getElementById('contactFormSection').style.display = 'none';
-                document.getElementById('bookingSuccess').style.display = 'block';
-
-                // Display confirmation details
-                const confirmDetails = document.getElementById('confirmationDetails');
-                const bookingDate = new Date(selectedTimeSlot.dateTime.dateTime);
-                confirmDetails.innerHTML = `
-                    <p><strong>Name:</strong> ${bookingData.customerName}</p>
-                    <p><strong>Email:</strong> ${bookingData.customerEmail}</p>
-                    <p><strong>Date:</strong> ${bookingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
-                    <p><strong>Time:</strong> ${bookingDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}</p>
-                    <p><strong>Location:</strong> Suite 2847, Venetian Tower</p>
-                `;
-
-                // Close modal after 5 seconds
-                setTimeout(() => {
-                    closeBookingModal();
-                }, 5000);
-
-            } catch (error) {
-                console.error('Booking error:', error);
-                // Fallback success message for demo
-                document.getElementById('contactFormSection').style.display = 'none';
-                document.getElementById('bookingSuccess').style.display = 'block';
-
-                const bookingDate = new Date(selectedTimeSlot.dateTime.dateTime);
-                document.getElementById('confirmationDetails').innerHTML = `
-                    <p><strong>Name:</strong> ${bookingData.customerName}</p>
-                    <p><strong>Email:</strong> ${bookingData.customerEmail}</p>
-                    <p><strong>Date:</strong> ${bookingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
-                    <p><strong>Time:</strong> ${bookingDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}</p>
-                    <p><strong>Location:</strong> Suite 2847, Venetian Tower</p>
-                    <p style="margin-top: 10px; color: #40b2e3;"><em>Confirmation email will be sent shortly</em></p>
-                `;
-
-                setTimeout(() => {
-                    closeBookingModal();
-                }, 5000);
-            }
-        });
-
-        // Date selector change event
-        document.getElementById('dateSelect').addEventListener('change', loadAvailableSlots);
-
-        // Legacy demo modal functions (keeping for compatibility)
-        function closeDemoModal() {
-            document.getElementById('demoModal').style.display = 'none';
-        }
-
-        // Add scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards
-        document.querySelectorAll('.product-card, .benefit-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Add some interactive polish
-        document.querySelectorAll('.product-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.borderTopColor = getRandomColor();
-            });
-        });
 
         function getRandomColor() {
             const colors = ['#005b8c', '#40b2e3', '#3498db', '#27ae60', '#2980b9'];
