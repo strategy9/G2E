@@ -1085,8 +1085,8 @@
                 const response = await fetch(`${BOOKING_API_BASE}/GetAvailableSlots`);
                 const data = await response.json();
 
-                if (data.success && data.availableSlots) {
-                    displayAvailableSlots(data.availableSlots);
+            if (data.success && data.slots && data.slots.length > 0) {
+                displayAvailableSlots(data.slots);
                 } else {
                     bookingContent.innerHTML = '<p style="color: var(--accent); text-align: center;">Unable to load available times. Please try again.</p>';
                 }
@@ -1192,13 +1192,14 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Booking...';
 
-            const bookingData = {
-                customerName: document.getElementById('customerName').value,
-                customerEmail: document.getElementById('customerEmail').value,
-                customerPhone: document.getElementById('customerPhone').value,
-                dateTime: dateTime,
-                notes: `Company: ${document.getElementById('customerCompany').value || 'Not specified'} - Booked via G2E PWA`
-            };
+        const bookingData = {
+            dateTime: dateTime,
+            name: document.getElementById('customerName').value,
+            email: document.getElementById('customerEmail').value,
+            phone: document.getElementById('customerPhone').value,
+            company: document.getElementById('customerCompany').value,
+            notes: `G2E 2025 - Company: ${document.getElementById('customerCompany').value || 'Not specified'}`
+        };
 
             try {
                 const response = await fetch(`${BOOKING_API_BASE}/CreateBooking`, {
