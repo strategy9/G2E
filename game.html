@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategy9 Marketing Metrics Cascade - G2E 2025</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(26, 26, 46, 0.95);
+            border-radius: 10px;
+            border: 2px solid #40b2e3;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #40b2e3 0%, #005B8C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .score-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+            background: #252538;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(64, 178, 227, 0.3);
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-label {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .score-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #40b2e3;
+        }
+
+        .game-board {
+            background: #000;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 3px solid #40b2e3;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+        }
+
+        .tile {
+            aspect-ratio: 1;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tile:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .tile.email { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .tile.wifi { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .tile.sms { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .tile.survey { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .tile.loyalty { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .tile.analytics { background: linear-gradient(135deg, #1abc9c, #16a085); }
+
+        .tile.matched {
+            animation: glow 0.6s ease;
+            border-color: #FFD700;
+        }
+
+        @keyframes glow {
+            0% { transform: scale(1); box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+            50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(255, 215, 0, 1); }
+            100% { transform: scale(1); box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+        }
+
+        .tile.falling {
+            animation: drop 0.5s ease;
+        }
+
+        @keyframes drop {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+
+        .btn {
+            flex: 1;
+            background: linear-gradient(135deg, #40b2e3, #005B8C);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(64, 178, 227, 0.5);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .products {
+            background: #252538;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(64, 178, 227, 0.3);
+        }
+
+        .products h3 {
+            color: #40b2e3;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+        }
+
+        .product-item {
+            background: rgba(64, 178, 227, 0.1);
+            border: 2px solid rgba(64, 178, 227, 0.3);
+            border-radius: 10px;
+            padding: 15px 10px;
+            text-align: center;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .product-item.unlocked {
+            opacity: 1;
+            background: linear-gradient(135deg, #40b2e3, #005B8C);
+            border-color: #40b2e3;
+        }
+
+        .product-icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .product-name {
+            font-size: 0.8rem;
+        }
+
+        .message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 20px 40px;
+            border-radius: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            z-index: 1000;
+            animation: popup 0.5s ease;
+        }
+
+        @keyframes popup {
+            from { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Strategy9</div>
+        <div>Marketing Metrics Cascade - G2E 2025</div>
+    </div>
+
+    <div class="container">
+        <div class="score-board">
+            <div class="score-item">
+                <div class="score-label">Score</div>
+                <div class="score-value" id="score">0</div>
+            </div>
+            <div class="score-item">
+                <div class="score-label">Matches</div>
+                <div class="score-value" id="matches">0</div>
+            </div>
+            <div class="score-item">
+                <div class="score-label">Combo</div>
+                <div class="score-value" id="combo">0</div>
+            </div>
+            <div class="score-item">
+                <div class="score-label">Products</div>
+                <div class="score-value" id="products">0/6</div>
+            </div>
+        </div>
+
+        <div class="game-board">
+            <div class="grid" id="gameGrid"></div>
+        </div>
+
+        <div class="controls">
+            <button class="btn" id="dropBtn">Drop New Row</button>
+            <button class="btn" id="resetBtn">Reset Game</button>
+        </div>
+
+        <div class="products">
+            <h3>Products Unlocked</h3>
+            <div class="product-grid">
+                <div class="product-item" data-type="email">
+                    <div class="product-icon">📧</div>
+                    <div class="product-name">EmailIQ</div>
+                </div>
+                <div class="product-item" data-type="wifi">
+                    <div class="product-icon">📶</div>
+                    <div class="product-name">WiFiIQ</div>
+                </div>
+                <div class="product-item" data-type="sms">
+                    <div class="product-icon">📱</div>
+                    <div class="product-name">SMSIQ</div>
+                </div>
+                <div class="product-item" data-type="survey">
+                    <div class="product-icon">📊</div>
+                    <div class="product-name">SurveyIQ</div>
+                </div>
+                <div class="product-item" data-type="loyalty">
+                    <div class="product-icon">🎁</div>
+                    <div class="product-name">LoyaltyIQ</div>
+                </div>
+                <div class="product-item" data-type="analytics">
+                    <div class="product-icon">📈</div>
+                    <div class="product-name">AnalyticsIQ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const COLS = 6;
+        const ROWS = 6;
+        const TYPES = [
+            { type: 'email', icon: '📧', value: '45%' },
+            { type: 'wifi', icon: '📶', value: '320' },
+            { type: 'sms', icon: '📱', value: '78%' },
+            { type: 'survey', icon: '📊', value: '4.8' },
+            { type: 'loyalty', icon: '🎁', value: '156' },
+            { type: 'analytics', icon: '📈', value: '12K' }
+        ];
+
+        let score = 0;
+        let matchCount = 0;
+        let bestCombo = 0;
+        let unlockedProducts = new Set();
+        let processing = false;
+
+        function init() {
+            createGrid();
+            document.getElementById('dropBtn').addEventListener('click', dropNewRow);
+            document.getElementById('resetBtn').addEventListener('click', resetGame);
+            setTimeout(checkForMatches, 500);
+        }
+
+        function createGrid() {
+            const grid = document.getElementById('gameGrid');
+            grid.innerHTML = '';
+            
+            for (let i = 0; i < ROWS * COLS; i++) {
+                const tile = createTile();
+                grid.appendChild(tile);
+            }
+        }
+
+        function createTile() {
+            const tileData = TYPES[Math.floor(Math.random() * TYPES.length)];
+            const tile = document.createElement('div');
+            tile.className = 'tile ' + tileData.type + ' falling';
+            tile.dataset.type = tileData.type;
+            tile.innerHTML = '<div style="font-size: 1.5rem;">' + tileData.icon + '</div>' +
+                            '<div style="font-size: 0.9rem;">' + tileData.value + '</div>';
+            
+            setTimeout(() => tile.classList.remove('falling'), 500);
+            return tile;
+        }
+
+        function dropNewRow() {
+            if (processing) return;
+            processing = true;
+            
+            const grid = document.getElementById('gameGrid');
+            const tiles = Array.from(grid.children);
+            
+            // Add sliding animation to all existing tiles (except bottom row)
+            for (let i = 0; i < tiles.length - COLS; i++) {
+                tiles[i].classList.add('sliding-down');
+            }
+            
+            // Add removing animation to bottom row
+            for (let i = tiles.length - COLS; i < tiles.length; i++) {
+                if (tiles[i]) {
+                    tiles[i].classList.add('removing');
+                }
+            }
+            
+            // Wait for animation, then remove bottom row
+            setTimeout(() => {
+                // Remove bottom row tiles
+                for (let i = 0; i < COLS; i++) {
+                    const bottomTile = tiles[tiles.length - COLS + i];
+                    if (bottomTile) bottomTile.remove();
+                }
+                
+                // Remove sliding class from remaining tiles
+                const remainingTiles = Array.from(grid.children);
+                remainingTiles.forEach(tile => tile.classList.remove('sliding-down'));
+                
+                // Add new row at top with staggered animation
+                for (let i = 0; i < COLS; i++) {
+                    setTimeout(() => {
+                        const newTile = createTile();
+                        grid.insertBefore(newTile, grid.firstChild);
+                    }, i * 80); // Increased from 50ms to 80ms for slower cascade
+                }
+                
+                setTimeout(() => {
+                    checkForMatches();
+                    processing = false;
+                }, 1000);  // Increased from 600ms to 1000ms
+            }, 600);  // Increased from 300ms to 600ms to match fade animation
+        }
+
+        function checkForMatches() {
+            const grid = document.getElementById('gameGrid');
+            const tiles = Array.from(grid.children);
+            const matchGroups = [];
+            
+            // Helper function to get tile at row/col
+            function getTileAt(row, col) {
+                if (row < 0 || row >= ROWS || col < 0 || col >= COLS) return null;
+                return tiles[row * COLS + col];
+            }
+            
+            // Helper function to find all tiles connected downward from a starting tile
+            function getConnectedTilesBelow(startRow, startCol, type, visited) {
+                const connected = [];
+                const stack = [[startRow, startCol]];
+                
+                while (stack.length > 0) {
+                    const [row, col] = stack.pop();
+                    const idx = row * COLS + col;
+                    
+                    // Skip if already visited
+                    if (visited.has(idx)) continue;
+                    
+                    const tile = getTileAt(row, col);
+                    if (!tile || tile.dataset.type !== type) continue;
+                    
+                    visited.add(idx);
+                    connected.push(tile);
+                    
+                    // Only check downward and sideways connections (not up)
+                    const directions = [
+                        [1, 0],   // down
+                        [0, -1],  // left
+                        [0, 1],   // right
+                    ];
+                    
+                    // If we're not on the top row, we can also connect sideways
+                    // If we're on top row, only go down
+                    if (row === 0) {
+                        // From top row, only follow downward
+                        const downTile = getTileAt(row + 1, col);
+                        if (downTile && downTile.dataset.type === type && !visited.has((row + 1) * COLS + col)) {
+                            stack.push([row + 1, col]);
+                        }
+                    } else {
+                        // From other rows, can go down, left, right
+                        directions.forEach(([dr, dc]) => {
+                            const newRow = row + dr;
+                            const newCol = col + dc;
+                            const newIdx = newRow * COLS + newCol;
+                            
+                            if (!visited.has(newIdx)) {
+                                const nextTile = getTileAt(newRow, newCol);
+                                if (nextTile && nextTile.dataset.type === type) {
+                                    stack.push([newRow, newCol]);
+                                }
+                            }
+                        });
+                    }
+                }
+                
+                return connected;
+            }
+            
+            // Find 2+ horizontal matches in the TOP ROW
+            const topRowMatches = [];
+            for (let col = 0; col <= COLS - 2; col++) {
+                const tile1 = getTileAt(0, col);
+                const tile2 = getTileAt(0, col + 1);
+                
+                if (tile1 && tile2 && tile1.dataset.type === tile2.dataset.type) {
+                    const type = tile1.dataset.type;
+                    const topRowGroup = [col, col + 1];
+                    
+                    // Check for longer matches in top row
+                    let nextCol = col + 2;
+                    while (nextCol < COLS) {
+                        const nextTile = getTileAt(0, nextCol);
+                        if (nextTile && nextTile.dataset.type === type) {
+                            topRowGroup.push(nextCol);
+                            nextCol++;
+                        } else {
+                            break;
+                        }
+                    }
+                    
+                    // Check if there's at least one matching tile directly below any of the top row tiles
+                    let hasConnectionBelow = false;
+                    for (let c of topRowGroup) {
+                        const belowTile = getTileAt(1, c);
+                        if (belowTile && belowTile.dataset.type === type) {
+                            hasConnectionBelow = true;
+                            break;
+                        }
+                    }
+                    
+                    // Only add this as a valid match if there's a connection below
+                    if (hasConnectionBelow) {
+                        topRowMatches.push({ type, columns: topRowGroup });
+                    }
+                    
+                    col = nextCol - 1; // Skip already checked tiles
+                }
+            }
+            
+            // Also check for single tiles in top row with connections below
+            for (let col = 0; col < COLS; col++) {
+                const topTile = getTileAt(0, col);
+                if (!topTile) continue;
+                
+                const type = topTile.dataset.type;
+                const belowTile = getTileAt(1, col);
+                
+                // If there's a matching tile directly below, check if it connects to more
+                if (belowTile && belowTile.dataset.type === type) {
+                    // Make sure this column isn't already part of a horizontal match
+                    const alreadyMatched = topRowMatches.some(match => 
+                        match.type === type && match.columns.includes(col)
+                    );
+                    
+                    if (!alreadyMatched) {
+                        // Check if the tile below connects to at least one more tile
+                        const visited = new Set();
+                        visited.add(col); // Mark top tile as visited
+                        const belowConnections = getConnectedTilesBelow(1, col, type, visited);
+                        
+                        // Need at least 2 tiles below (the one directly below plus at least one more)
+                        if (belowConnections.length >= 2) {
+                            topRowMatches.push({ type, columns: [col] });
+                        }
+                    }
+                }
+            }
+            
+            // For each valid top row match, find all connected tiles
+            topRowMatches.forEach(({ type, columns }) => {
+                const visited = new Set();
+                const allConnected = [];
+                
+                // Start from each column in the top row match
+                columns.forEach(col => {
+                    const connected = getConnectedTilesBelow(0, col, type, visited);
+                    allConnected.push(...connected);
+                });
+                
+                // Should always have at least 3 tiles (2 in top + 1 below minimum)
+                if (allConnected.length >= 3) {
+                    matchGroups.push(allConnected);
+                }
+            });
+            
+            if (matchGroups.length > 0) {
+                processMatches(matchGroups);
+            }
+        }
+
+        function processMatches(matches) {
+            let points = 0;
+            
+            matches.forEach(match => {
+                const type = match[0].dataset.type;
+                const matchSize = match.length;
+                points += matchSize * 100;
+                
+                // Define product names
+                const productNames = {
+                    email: 'EmailIQ',
+                    wifi: 'WiFiIQ',
+                    sms: 'SMSIQ',
+                    survey: 'SurveyIQ',
+                    loyalty: 'LoyaltyIQ',
+                    analytics: 'AnalyticsIQ'
+                };
+                
+                const productName = productNames[type] || type.toUpperCase() + 'IQ';
+                
+                if (!unlockedProducts.has(type)) {
+                    unlockedProducts.add(type);
+                    unlockProduct(type);
+                }
+                
+                match.forEach(tile => tile.classList.add('matched'));
+                
+                if (matchSize > bestCombo) {
+                    bestCombo = matchSize;
+                    document.getElementById('combo').textContent = bestCombo;
+                }
+                
+                // Show product-specific combo messages based on match size
+                if (matchSize >= 7) {
+                    showMessage('MEGA ' + matchSize + 'x ' + productName + '! 🚀');
+                } else if (matchSize >= 5) {
+                    showMessage('SUPER ' + matchSize + 'x ' + productName + '! ⭐');
+                } else if (matchSize >= 4) {
+                    showMessage(matchSize + 'x ' + productName + ' COMBO! 🎯');
+                } else if (matchSize === 3) {
+                    showMessage(matchSize + 'x ' + productName + '!');
+                }
+            });
+            
+            score += points;
+            matchCount += matches.length;
+            document.getElementById('score').textContent = score;
+            document.getElementById('matches').textContent = matchCount;
+            
+            setTimeout(() => {
+                matches.forEach(match => {
+                    match.forEach(tile => tile.remove());
+                });
+                
+                const grid = document.getElementById('gameGrid');
+                const tilesNeeded = matches.reduce((sum, m) => sum + m.length, 0);
+                
+                for (let i = 0; i < tilesNeeded; i++) {
+                    const newTile = createTile();
+                    grid.insertBefore(newTile, grid.firstChild);
+                }
+                
+                setTimeout(() => checkForMatches(), 1000);
+            }, 1200);
+        }
+
+        function unlockProduct(type) {
+            const product = document.querySelector('.product-item[data-type="' + type + '"]');
+            if (product) {
+                product.classList.add('unlocked');
+                const count = unlockedProducts.size;
+                document.getElementById('products').textContent = count + '/6';
+                
+                if (count === 6) {
+                    showMessage('ALL PRODUCTS UNLOCKED!');
+                }
+            }
+        }
+
+        function showMessage(text) {
+            const existing = document.querySelector('.message');
+            if (existing) existing.remove();
+            
+            const msg = document.createElement('div');
+            msg.className = 'message';
+            msg.textContent = text;
+            document.body.appendChild(msg);
+            
+            setTimeout(() => msg.remove(), 2000);
+        }
+
+        function resetGame() {
+            score = 0;
+            matchCount = 0;
+            bestCombo = 0;
+            unlockedProducts.clear();
+            processing = false;
+            
+            document.getElementById('score').textContent = '0';
+            document.getElementById('matches').textContent = '0';
+            document.getElementById('combo').textContent = '0';
+            document.getElementById('products').textContent = '0/6';
+            
+            document.querySelectorAll('.product-item').forEach(p => {
+                p.classList.remove('unlocked');
+            });
+            
+            createGrid();
+            setTimeout(checkForMatches, 500);
+        }
+
+        init();
+    </script>
+</body>
+</html>
