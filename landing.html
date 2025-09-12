@@ -970,7 +970,9 @@
                     e.preventDefault();
 
                    const bookingData = {
-                       dateTime: selectedTimeSlot.dateTime,
+                    dateTime: typeof selectedTimeSlot.dateTime === 'string' ? 
+                                  selectedTimeSlot.dateTime : 
+                                  selectedTimeSlot.dateTime.dateTime,                       
                        name: document.getElementById('customerName').value,
                        email: document.getElementById('customerEmail').value,
                        phone: document.getElementById('customerPhone').value,
