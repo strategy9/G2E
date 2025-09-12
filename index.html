@@ -1182,16 +1182,16 @@
                 
                 // Submit to actual survey endpoint
                 const actualUrl = this.getAttribute('href');
-                // Open in a hidden iframe to submit the response
-                const iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = actualUrl;
-                document.body.appendChild(iframe);
                 
-                // Remove iframe after submission
-                setTimeout(() => {
-                    document.body.removeChild(iframe);
-                }, 3000);
+                // Use fetch instead of iframe to submit the response
+                fetch(actualUrl, {
+                    method: 'GET',
+                    mode: 'no-cors' // Use no-cors since we don't need to read the response
+                }).then(() => {
+                    console.log('Survey response submitted');
+                }).catch(err => {
+                    console.log('Submission error (may still have worked):', err);
+                });
                 
                 // Show results after a short delay
                 setTimeout(() => {
