@@ -969,14 +969,14 @@
                 bookingForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
 
-                    const bookingData = {
-                        name: document.getElementById('customerName').value,
-                        email: document.getElementById('customerEmail').value,
-                        phone: document.getElementById('customerPhone').value || '',
-                        company: document.getElementById('customerCompany').value || '',
-                        notes: 'Booked via G2E 2025 landing page',
-                        dateTime: selectedTimeSlot.dateTime
-                    };
+               const bookingData = {
+                   dateTime: dateTime,
+                   name: document.getElementById('customerName').value,
+                   email: document.getElementById('customerEmail').value,
+                   phone: document.getElementById('customerPhone').value,
+                   company: document.getElementById('customerCompany').value,
+                   notes: `G2E 2025 Landing Page - Company: ${document.getElementById('customerCompany').value || 'Not specified'}`
+               };
 
                     try {
                         const response = await fetch(`${AZURE_FUNCTIONS_URL}/CreateBooking`, {
