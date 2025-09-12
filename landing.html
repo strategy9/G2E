@@ -970,12 +970,12 @@
                     e.preventDefault();
 
                     const bookingData = {
-                        customerName: document.getElementById('customerName').value,
-                        customerEmail: document.getElementById('customerEmail').value,
-                        customerPhone: document.getElementById('customerPhone').value || '',
-                        customerNotes: document.getElementById('customerCompany').value ?
-                            `Company: ${document.getElementById('customerCompany').value}` : '',
-                        startDateTime: selectedTimeSlot.dateTime
+                        name: document.getElementById('customerName').value,
+                        email: document.getElementById('customerEmail').value,
+                        phone: document.getElementById('customerPhone').value || '',
+                        company: document.getElementById('customerCompany').value || '',
+                        notes: 'Booked via G2E 2025 landing page',
+                        dateTime: selectedTimeSlot.dateTime
                     };
 
                     try {
