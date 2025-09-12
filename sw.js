@@ -3,8 +3,9 @@ const API_CACHE = 'strategy9-api-v1';
 const CACHE_DURATION = 60 * 1000; // 1 minute for API responses
 
 const urlsToCache = [
-  '/Demo.html',
-  '/'
+  '/G2E/',
+  '/G2E/index.html',
+  '/G2E/game.html'
 ];
 
 self.addEventListener('install', event => {
@@ -12,7 +13,7 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
   );
-  self.skipWaiting();
+  self.skipWaiting();async function getSurveyStatistics(publicIdOrShortCode)
 });
 
 self.addEventListener('activate', event => {
