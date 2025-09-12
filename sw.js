@@ -13,7 +13,7 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
   );
-  self.skipWaiting();async function getSurveyStatistics(publicIdOrShortCode)
+self.skipWaiting();async function getSurveyStatistics(publicIdOrShortCode)
 });
 
 self.addEventListener('activate', event => {
