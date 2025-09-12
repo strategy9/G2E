@@ -1233,6 +1233,7 @@
 
         function selectTimeSlot(slot, timeString) {
             selectedTimeSlot = slot;
+            selectedTimeSlot.displayTime = timeString; // Store the display time for later use
             const timeSlotSection = document.getElementById('timeSlotSection');
             const contactFormSection = document.getElementById('contactFormSection');
 
