@@ -1058,10 +1058,192 @@
         const SURVEY_ID = '54';
         const SURVEY_SHORT_CODE = 'pyv5bb';
 
-        // Booking Function
-        function openBooking() {
-            // Open Microsoft Bookings in a new tab
-            window.open('https://outlook.office.com/book/Strategy9G2E@strategy9.com/', '_blank');
+        // Azure Functions API Base URL
+        const BOOKING_API_BASE = 'https://g2e-bookings-api-fah8f2afd6eecsa2.westus-01.azurewebsites.net/api';
+
+        // Booking Functions - Define in global scope
+        async function openBooking() {
+            const modal = document.getElementById('bookingModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                await loadAvailableSlots();
+            }
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        async function loadAvailableSlots() {
+            const bookingContent = document.getElementById('bookingContent');
+            bookingContent.innerHTML = '<div style="text-align: center; padding: 2rem;"><div class="loading-spinner"></div><p>Loading available times...</p></div>';
+
+            try {
+                const response = await fetch(`${BOOKING_API_BASE}/GetAvailableSlots`);
+                const data = await response.json();
+
+                if (data.success && data.availableSlots) {
+                    displayAvailableSlots(data.availableSlots);
+                } else {
+                    bookingContent.innerHTML = '<p style="color: var(--accent); text-align: center;">Unable to load available times. Please try again.</p>';
+                }
+            } catch (error) {
+                console.error('Error loading slots:', error);
+                bookingContent.innerHTML = '<p style="color: var(--accent); text-align: center;">Unable to connect to booking system. Please try again.</p>';
+            }
+        }
+
+        function displayAvailableSlots(slots) {
+            const bookingContent = document.getElementById('bookingContent');
+
+            // Group slots by date
+            const slotsByDate = {};
+            slots.forEach(slot => {
+                if (!slotsByDate[slot.date]) {
+                    slotsByDate[slot.date] = [];
+                }
+                slotsByDate[slot.date].push(slot);
+            });
+
+            let html = '<div class="slots-container">';
+
+            const dateNames = {
+                '2025-10-07': 'Tuesday, October 7',
+                '2025-10-08': 'Wednesday, October 8',
+                '2025-10-09': 'Thursday, October 9'
+            };
+
+            for (const [date, dateSlots] of Object.entries(slotsByDate)) {
+                html += `
+                    <div class="date-section">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">${dateNames[date] || date}</h4>
+                        <div class="time-slots-grid">
+                `;
+
+                dateSlots.forEach(slot => {
+                    html += `
+                        <button class="time-slot-btn" onclick="selectTimeSlot('${slot.dateTime}', '${slot.displayTime}', '${date}')">
+                            ${slot.displayTime}
+                        </button>
+                    `;
+                });
+
+                html += '</div></div>';
+            }
+
+            html += '</div>';
+            bookingContent.innerHTML = html;
+        }
+
+        function selectTimeSlot(dateTime, displayTime, date) {
+            const bookingContent = document.getElementById('bookingContent');
+
+            const dateNames = {
+                '2025-10-07': 'Tuesday, October 7',
+                '2025-10-08': 'Wednesday, October 8',
+                '2025-10-09': 'Thursday, October 9'
+            };
+
+            bookingContent.innerHTML = `
+                <div class="booking-form">
+                    <div style="background: rgba(64, 178, 227, 0.1); padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <p style="margin: 0; color: var(--primary);">Selected Time:</p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 1.2rem; font-weight: bold;">${dateNames[date]} at ${displayTime}</p>
+                    </div>
+
+                    <form id="bookingForm" onsubmit="submitBooking(event, '${dateTime}'); return false;">
+                        <div class="form-group">
+                            <label for="customerName">Name *</label>
+                            <input type="text" id="customerName" required placeholder="John Smith" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customerEmail">Email *</label>
+                            <input type="email" id="customerEmail" required placeholder="john@example.com" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customerPhone">Phone</label>
+                            <input type="tel" id="customerPhone" placeholder="(555) 123-4567" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customerCompany">Company</label>
+                            <input type="text" id="customerCompany" placeholder="Casino Name" />
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" onclick="loadAvailableSlots()" class="secondary-btn">Back</button>
+                            <button type="submit" class="primary-btn">Book Demo</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+        }
+
+        async function submitBooking(event, dateTime) {
+            event.preventDefault();
+
+            const form = document.getElementById('bookingForm');
+            const submitBtn = form.querySelector('.primary-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Booking...';
+
+            const bookingData = {
+                customerName: document.getElementById('customerName').value,
+                customerEmail: document.getElementById('customerEmail').value,
+                customerPhone: document.getElementById('customerPhone').value,
+                dateTime: dateTime,
+                notes: `Company: ${document.getElementById('customerCompany').value || 'Not specified'} - Booked via G2E PWA`
+            };
+
+            try {
+                const response = await fetch(`${BOOKING_API_BASE}/CreateBooking`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(bookingData)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showBookingConfirmation(bookingData);
+                } else {
+                    alert('Unable to complete booking. Please try again or visit us at Suite 49-709.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Book Demo';
+                }
+            } catch (error) {
+                console.error('Booking error:', error);
+                alert('Unable to complete booking. Please try again or visit us at Suite 49-709.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Book Demo';
+            }
+        }
+
+        function showBookingConfirmation(bookingData) {
+            const bookingContent = document.getElementById('bookingContent');
+
+            bookingContent.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Demo Booked Successfully!</h3>
+                    <p style="margin-bottom: 1.5rem;">Thank you, ${bookingData.customerName}!</p>
+
+                    <div style="background: rgba(64, 178, 227, 0.1); padding: 1.5rem; border-radius: 10px; text-align: left; margin-bottom: 1.5rem;">
+                        <p style="margin-bottom: 0.5rem;"><strong>Confirmation sent to:</strong> ${bookingData.customerEmail}</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Location:</strong> Suite 49-709, Palazzo Tower</p>
+                        <p style="margin: 0;"><strong>What's next:</strong> You'll receive a reminder 1 hour before your demo.</p>
+                    </div>
+
+                    <button onclick="closeBookingModal()" class="primary-btn">Close</button>
+                </div>
+            `;
         }
 
         // Survey API Integration
