@@ -12,8 +12,9 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
+      .catch(err => console.log('Cache failed:', err))
   );
-self.skipWaiting();async function getSurveyStatistics(publicIdOrShortCode)
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', event => {
@@ -114,7 +115,7 @@ self.addEventListener('fetch', event => {
       }).catch(() => {
         // Offline fallback for HTML pages
         if (request.destination === 'document') {
-          return caches.match('/Demo.html');
+          return caches.match('/G2E/index.html');
         }
       });
     })
