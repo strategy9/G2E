@@ -1125,23 +1125,43 @@
                 if (!response.ok) throw new Error('Failed to load slots');
 
                 const data = await response.json();
-                availableSlots = data.availableSlots || [];
+                console.log('API Response:', data); // Debug log
+
+                // Handle both response formats - new format with 'slots' or old format with 'availableSlots'
+                const slots = data.slots || data.availableSlots || [];
 
                 loading.style.display = 'none';
 
-                if (availableSlots.length === 0) {
+                // Filter slots for selected date
+                const selectedDateSlots = slots.filter(slot => {
+                    // Check if slot is available
+                    if (slot.available === false) return false;
+
+                    // Parse the date from either format
+                    const slotDate = slot.dateTime.dateTime || slot.dateTime;
+                    const slotDateObj = new Date(slotDate);
+                    const slotDateStr = slotDateObj.toISOString().split('T')[0];
+
+                    return slotDateStr === selectedDate;
+                });
+
+                if (selectedDateSlots.length === 0) {
                     container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">No available slots for this date</p>';
                     return;
                 }
 
                 // Display time slots
-                availableSlots.forEach(slot => {
-                    const time = new Date(slot.dateTime.dateTime);
-                    const timeString = time.toLocaleTimeString('en-US', {
-                        hour: 'numeric',
-                        minute: '2-digit',
-                        hour12: true
-                    });
+                selectedDateSlots.forEach(slot => {
+                    // Use displayTime if available, otherwise calculate it
+                    const timeString = slot.displayTime || (() => {
+                        const time = new Date(slot.dateTime.dateTime || slot.dateTime);
+                        return time.toLocaleTimeString('en-US', {
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true,
+                            timeZone: 'America/Los_Angeles'
+                        });
+                    })();
 
                     const button = document.createElement('button');
                     button.style.cssText = 'padding: 10px; border: 2px solid #40b2e3; background: white; color: #005b8c; border-radius: 10px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;';
@@ -1154,7 +1174,16 @@
                         button.style.background = 'white';
                         button.style.color = '#005b8c';
                     };
-                    button.onclick = () => selectTimeSlot(slot, timeString);
+                    button.onclick = () => {
+                        // Create slot in expected format for booking
+                        const bookingSlot = {
+                            dateTime: {
+                                dateTime: slot.dateTime.dateTime || slot.dateTime,
+                                timeZone: 'America/Los_Angeles'
+                            }
+                        };
+                        selectTimeSlot(bookingSlot, timeString);
+                    };
 
                     container.appendChild(button);
                 });
