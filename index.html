@@ -1227,18 +1227,19 @@
             }
         }
 
-        function showBookingConfirmation(bookingData) {
+        function showBookingConfirmation(bookingData, displayTime) {
             const bookingContent = document.getElementById('bookingContent');
 
             bookingContent.innerHTML = `
                 <div style="text-align: center; padding: 2rem;">
                     <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
                     <h3 style="color: var(--primary); margin-bottom: 1rem;">Demo Booked Successfully!</h3>
-                    <p style="margin-bottom: 1.5rem;">Thank you, ${bookingData.customerName}!</p>
+                    <p style="margin-bottom: 1.5rem;">Thank you, ${bookingData.name}!</p>
 
                     <div style="background: rgba(64, 178, 227, 0.1); padding: 1.5rem; border-radius: 10px; text-align: left; margin-bottom: 1.5rem;">
-                        <p style="margin-bottom: 0.5rem;"><strong>Confirmation sent to:</strong> ${bookingData.customerEmail}</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Location:</strong> Suite 49-709, Palazzo Tower</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Demo Time:</strong> ${displayTime || 'Confirmation email sent'}</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Confirmation sent to:</strong> ${bookingData.email}</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Location:</strong> Suite 2847, Venetian Tower</p>
                         <p style="margin: 0;"><strong>What's next:</strong> You'll receive a reminder 1 hour before your demo.</p>
                     </div>
 
