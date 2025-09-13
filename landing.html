@@ -972,9 +972,9 @@
                     const bookingData = {
                         name: document.getElementById('customerName').value,
                         email: document.getElementById('customerEmail').value,
-                        phone: document.getElementById('customerPhone').value,
+                        phone: document.getElementById('customerPhone').value || '',
                         company: document.getElementById('customerCompany').value,
-                        notes: `G2E 2025 Landing Page - Company: ${document.getElementById('customerCompany').value || 'Not specified'}`
+                        notes: `G2E 2025 Landing - Company: ${document.getElementById('customerCompany').value || 'Not specified'}`
                         dateTime: selectedTimeSlot.dateTime
                     };
 
@@ -1175,7 +1175,14 @@
                         button.style.color = '#005b8c';
                     };
                     button.onclick = () => {
-                        selectTimeSlot(slot.dateTime, timeString);
+                        // Create slot in expected format for booking
+                        const bookingSlot = {
+                            dateTime: {
+                                dateTime: slot.dateTime.dateTime || slot.dateTime,
+                                timeZone: 'America/Los_Angeles'
+                            }
+                        };
+                        selectTimeSlot(bookingSlot, timeString);
                     };
 
                     container.appendChild(button);
