@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strategy9 Marketing Metrics Cascade - G2E 2025</title>
-    
+    <link rel="shortcut icon" href="/G2E/favicon.svg" />
+
     <style>
         * {
             margin: 0;
@@ -97,27 +98,55 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .tile:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
+            .tile:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
 
-        .tile.email { background: linear-gradient(135deg, #3498db, #2980b9); }
-        .tile.wifi { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
-        .tile.sms { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-        .tile.survey { background: linear-gradient(135deg, #f39c12, #e67e22); }
-        .tile.loyalty { background: linear-gradient(135deg, #e74c3c, #c0392b); }
-        .tile.analytics { background: linear-gradient(135deg, #1abc9c, #16a085); }
+            .tile.email {
+                background: linear-gradient(135deg, #3498db, #2980b9);
+            }
 
-        .tile.matched {
-            animation: glow 0.6s ease;
-            border-color: #FFD700;
-        }
+            .tile.wifi {
+                background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            }
+
+            .tile.sms {
+                background: linear-gradient(135deg, #2ecc71, #27ae60);
+            }
+
+            .tile.survey {
+                background: linear-gradient(135deg, #f39c12, #e67e22);
+            }
+
+            .tile.loyalty {
+                background: linear-gradient(135deg, #e74c3c, #c0392b);
+            }
+
+            .tile.analytics {
+                background: linear-gradient(135deg, #1abc9c, #16a085);
+            }
+
+            .tile.matched {
+                animation: glow 0.6s ease;
+                border-color: #FFD700;
+            }
 
         @keyframes glow {
-            0% { transform: scale(1); box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
-            50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(255, 215, 0, 1); }
-            100% { transform: scale(1); box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 25px rgba(255, 215, 0, 1);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            }
         }
 
         .tile.falling {
@@ -125,8 +154,15 @@
         }
 
         @keyframes drop {
-            from { transform: translateY(-100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .controls {
@@ -149,15 +185,15 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(64, 178, 227, 0.5);
-        }
+            .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 20px rgba(64, 178, 227, 0.5);
+            }
 
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+            .btn:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
 
         .products {
             background: #252538;
@@ -166,11 +202,11 @@
             border: 1px solid rgba(64, 178, 227, 0.3);
         }
 
-        .products h3 {
-            color: #40b2e3;
-            margin-bottom: 15px;
-            text-align: center;
-        }
+            .products h3 {
+                color: #40b2e3;
+                margin-bottom: 15px;
+                text-align: center;
+            }
 
         .product-grid {
             display: grid;
@@ -188,11 +224,11 @@
             transition: all 0.3s ease;
         }
 
-        .product-item.unlocked {
-            opacity: 1;
-            background: linear-gradient(135deg, #40b2e3, #005B8C);
-            border-color: #40b2e3;
-        }
+            .product-item.unlocked {
+                opacity: 1;
+                background: linear-gradient(135deg, #40b2e3, #005B8C);
+                border-color: #40b2e3;
+            }
 
         .product-icon {
             font-size: 2rem;
@@ -219,8 +255,15 @@
         }
 
         @keyframes popup {
-            from { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            from {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
         }
     </style>
 </head>
