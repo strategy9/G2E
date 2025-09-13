@@ -1061,53 +1061,6 @@
         // Azure Functions API Base URL
         const BOOKING_API_BASE = 'https://g2e-bookings-api-fah8f2afd6eecsa2.westus-01.azurewebsites.net/api';
 
-        function detectiOS() {
-            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        }
-
-        function detectSafari() {
-            return /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-        }
-
-        if (detectiOS() && detectSafari()) {
-            // Show iOS-specific installation banner
-            showInstallPrompt();
-        }
-
-
-        function showInstallPrompt() {
-            const banner = document.createElement('div');
-            banner.innerHTML = `
-                <div style="position: fixed; bottom: 0; left: 0; right: 0; background: #005b8c; color: white; padding: 15px; z-index: 1000;">
-                    <div style="text-align: center;">
-                        <strong>📱 Install G2E Demo App</strong>
-                        <p style="font-size: 0.9em; margin: 5px 0;">Tap the Share button ⬆️ then "Add to Home Screen"</p>
-                        <button onclick="this.parentElement.parentElement.remove()" style="background: #40b2e3; color: white; border: none; padding: 5px 15px; border-radius: 15px;">Got it</button>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(banner);
-        }
-
-        let deferredPrompt;
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-    
-            // Show your custom install button
-            document.getElementById('installButton').style.display = 'block';
-        });
-
-        document.getElementById('installButton').addEventListener('click', () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    deferredPrompt = null;
-                });
-            }
-        });
-
         // Booking Functions - Define in global scope
         async function openBooking() {
             const modal = document.getElementById('bookingModal');
