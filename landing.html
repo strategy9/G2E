@@ -969,14 +969,14 @@
                 bookingForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
 
-                   const bookingData = {
-                       dateTime: selectedTimeSlot.dateTime.toISOString(),
-                       name: document.getElementById('customerName').value,
-                       email: document.getElementById('customerEmail').value,
-                       phone: document.getElementById('customerPhone').value,
-                       company: document.getElementById('customerCompany').value,
-                       notes: `G2E 2025 Landing Page - Company: ${document.getElementById('customerCompany').value || 'Not specified'}`
-                   };
+                    const bookingData = {
+                        customerName: document.getElementById('customerName').value,
+                        customerEmail: document.getElementById('customerEmail').value,
+                        customerPhone: document.getElementById('customerPhone').value || '',
+                        customerNotes: document.getElementById('customerCompany').value ?
+                            `Company: ${document.getElementById('customerCompany').value}` : '',
+                        startDateTime: selectedTimeSlot.dateTime
+                    };
 
                     try {
                         const response = await fetch(`${AZURE_FUNCTIONS_URL}/CreateBooking`, {
@@ -1175,14 +1175,7 @@
                         button.style.color = '#005b8c';
                     };
                     button.onclick = () => {
-                        // Create slot in expected format for booking
-                        const bookingSlot = {
-                            dateTime: {
-                                dateTime: slot.dateTime.dateTime || slot.dateTime,
-                                timeZone: 'America/Los_Angeles'
-                            }
-                        };
-                        selectTimeSlot(bookingSlot, timeString);
+                        selectTimeSlot(slot.dateTime, timeString);
                     };
 
                     container.appendChild(button);
