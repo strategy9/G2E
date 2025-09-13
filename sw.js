@@ -33,6 +33,12 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   const { request } = event;
+
+    // Skip non-HTTP(S) requests to avoid cache errors
+  if (!request.url.startsWith('http')) {
+    return;
+  }
+
   const url = new URL(request.url);
 
   // Handle API requests with time-based caching
@@ -63,7 +69,9 @@ self.addEventListener('fetch', event => {
             });
 
             // Cache the response
-            cache.put(request, timedResponse.clone());
+            cache.put(request, timedResponse.clone()).catch(err => {
+              console.log('Failed to cache API response:', err);
+            });
             return response;
           }).catch(() => {
             // Return cached response if available, even if expired
@@ -106,9 +114,11 @@ self.addEventListener('fetch', event => {
         // Cache successful responses
         if (response.status === 200 && request.method === 'GET') {
           const responseToCache = response.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(request, responseToCache);
+        caches.open(CACHE_NAME).then(cache => {
+          cache.put(request, responseToCache).catch(err => {
+            console.log('Failed to cache request:', request.url, err);
           });
+        });
         }
         return response;
       }).catch(() => {
