@@ -55,6 +55,30 @@
             padding: 0 20px;
         }
 
+        /* Escape Banner */
+        .escape-banner {
+            background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+            .escape-banner h2 {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+
+            .escape-banner p {
+                font-size: 1.1em;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: 0 auto;
+                opacity: 0.95;
+            }
+
         /* Info Cards */
         .info-cards {
             display: grid;
@@ -439,20 +463,33 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="logo"><img src="s9logo.png" width="400px;"/></div>
+        <div class="logo"><img src="s9logo.png" width="400px;" /></div>
         <p class="tagline">Book Your Personalized Demo at G2E 2025</p>
     </header>
 
     <!-- Main Container -->
     <div class="container">
+        <!-- Escape the Chaos Banner -->
+        <div class="escape-banner">
+            <h2>🌟 Escape the Show Floor Chaos</h2>
+            <p>
+                Step away from the crowded aisles and overwhelming noise into our <strong>quiet, comfortable media suite</strong>.
+                Enjoy complimentary refreshments, comfortable seating, and a relaxed atmosphere where you can actually
+                <strong>hear, think, and have meaningful conversations</strong> about your business challenges.
+            </p>
+            <p style="margin-top: 15px; font-size: 0.95em; opacity: 0.9;">
+                Your own private oasis at G2E - where real business gets done.
+            </p>
+        </div>
+
         <!-- Info Cards -->
         <div class="info-cards">
             <div class="info-card">
                 <div class="info-icon">📍</div>
                 <div class="info-title">Location</div>
                 <div class="info-details">
-                    Suite 2847<br>
-                    Venetian Tower<br>
+                    Strategy9 Media Suite<br>
+                    (Exact suite # to follow)<br>
                     Las Vegas, NV
                 </div>
             </div>
@@ -482,7 +519,7 @@
                 <div class="info-title">What to Expect</div>
                 <div class="info-details">
                     Live Product Demos<br>
-                    ROI Calculator<br>
+                    Comfortable, Quiet Suite<br>
                     Custom Solutions
                 </div>
             </div>
@@ -600,6 +637,12 @@
                 <h3 class="benefits-title">What You'll Experience in Your Demo</h3>
                 <div class="benefits-grid">
                     <div class="benefit-item">
+                        <span class="benefit-icon">🛋️</span>
+                        <div class="benefit-text">
+                            <strong>Peaceful Environment:</strong> No shouting over noise, no crowds pushing past - just focused conversation in our comfortable suite with refreshments
+                        </div>
+                    </div>
+                    <div class="benefit-item">
                         <span class="benefit-icon">🎯</span>
                         <div class="benefit-text">
                             <strong>Personalized Solutions:</strong> We'll focus on your specific pain points and show relevant features for your property
@@ -623,7 +666,7 @@
 
         <!-- Back Link -->
         <div class="back-link">
-            <a href="https://strategy9.github.io/G2E/">← Back to G2E Homepage</a>
+            <a href="https://strategy9.github.io/G2E/landing.html">← Back to G2E Homepage</a>
         </div>
     </div>
 
