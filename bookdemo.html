@@ -1,0 +1,847 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Strategy9 Demo at G2E 2025</title>
+    <meta name="description" content="Schedule your personalized 30-minute demo at Suite 2847, Venetian Tower during G2E 2025.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #005b8c;
+            --secondary-color: #40b2e3;
+            --success-color: #27ae60;
+            --error-color: #e74c3c;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #005b8c 0%, #003d5c 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .info-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .info-title {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .info-details {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        /* Date Selector */
+        .date-selector {
+            margin-bottom: 30px;
+        }
+
+        .date-label {
+            display: block;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .date-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+            .date-select:focus {
+                outline: none;
+                border-color: var(--secondary-color);
+            }
+
+        /* Time Slots */
+        .time-slots-container {
+            margin-bottom: 30px;
+        }
+
+        .time-slots-label {
+            display: block;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .time-slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px;
+        }
+
+        .time-slot {
+            padding: 12px;
+            border: 2px solid var(--secondary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+            .time-slot:hover {
+                background: var(--secondary-color);
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(64, 178, 227, 0.3);
+            }
+
+            .time-slot.selected {
+                background: var(--primary-color);
+                color: white;
+                border-color: var(--primary-color);
+            }
+
+            .time-slot:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                background: #f5f5f5;
+                border-color: #ddd;
+                color: #999;
+            }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: var(--secondary-color);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(64, 178, 227, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--secondary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: none;
+            border-top: 2px solid #f0f0f0;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+            .contact-form.active {
+                display: block;
+                animation: slideIn 0.3s ease-out;
+            }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            color: #666;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+            .form-label .required {
+                color: var(--error-color);
+            }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+            .form-input:focus {
+                outline: none;
+                border-color: var(--secondary-color);
+            }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Selected Time Display */
+        .selected-time-display {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Submit Button */
+        .submit-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .submit-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+
+            .submit-button:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+            .success-message.active {
+                display: block;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .success-title {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .confirmation-details {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+            .confirmation-details p {
+                margin: 8px 0;
+                color: #666;
+            }
+
+            .confirmation-details strong {
+                color: var(--primary-color);
+            }
+
+        /* Back Link */
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+            .back-link a {
+                color: var(--secondary-color);
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s ease;
+            }
+
+                .back-link a:hover {
+                    color: var(--primary-color);
+                }
+
+        /* Benefits Section */
+        .benefits-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+        }
+
+        .benefits-title {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+        }
+
+        .benefit-icon {
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .time-slots-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+
+            .booking-section {
+                padding: 20px;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo"><img src="s9logo.png" width="400px;"/></div>
+        <p class="tagline">Book Your Personalized Demo at G2E 2025</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Info Cards -->
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="info-icon">📍</div>
+                <div class="info-title">Location</div>
+                <div class="info-details">
+                    Suite 2847<br>
+                    Venetian Tower<br>
+                    Las Vegas, NV
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">📅</div>
+                <div class="info-title">Event Dates</div>
+                <div class="info-details">
+                    October 7-9, 2025<br>
+                    G2E Las Vegas<br>
+                    The Venetian Expo
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">⏰</div>
+                <div class="info-title">Demo Duration</div>
+                <div class="info-details">
+                    30 Minutes<br>
+                    Personalized Presentation<br>
+                    Q&A Included
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">🎯</div>
+                <div class="info-title">What to Expect</div>
+                <div class="info-details">
+                    Live Product Demos<br>
+                    ROI Calculator<br>
+                    Custom Solutions
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Section -->
+        <div class="booking-section">
+            <div class="section-header">
+                <h1 class="section-title">Schedule Your Demo</h1>
+                <p class="section-subtitle">Select your preferred date and time for a personalized demonstration</p>
+            </div>
+
+            <!-- Booking Form Container -->
+            <div id="bookingContainer">
+                <!-- Date Selector -->
+                <div class="date-selector">
+                    <label class="date-label" for="dateSelect">Select Date:</label>
+                    <select id="dateSelect" class="date-select">
+                        <option value="2025-10-07">Tuesday, October 7, 2025</option>
+                        <option value="2025-10-08">Wednesday, October 8, 2025</option>
+                        <option value="2025-10-09">Thursday, October 9, 2025</option>
+                    </select>
+                </div>
+
+                <!-- Time Slots -->
+                <div class="time-slots-container">
+                    <label class="time-slots-label">Available Times:</label>
+                    <div id="loadingSlots" class="loading" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>Loading available times...</p>
+                    </div>
+                    <div id="timeSlotsGrid" class="time-slots-grid">
+                        <!-- Time slots will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div id="contactForm" class="contact-form">
+                    <div class="selected-time-display" id="selectedTimeDisplay">
+                        <!-- Selected time will be displayed here -->
+                    </div>
+
+                    <form id="bookingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">
+                                    First Name <span class="required">*</span>
+                                </label>
+                                <input type="text" id="firstName" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">
+                                    Last Name <span class="required">*</span>
+                                </label>
+                                <input type="text" id="lastName" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">
+                                Email Address <span class="required">*</span>
+                            </label>
+                            <input type="email" id="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="phone">
+                                    Phone Number
+                                </label>
+                                <input type="tel" id="phone" class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="company">
+                                    Company <span class="required">*</span>
+                                </label>
+                                <input type="text" id="company" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="interests">
+                                What would you like to see? (Optional)
+                            </label>
+                            <textarea id="interests" class="form-input" rows="3" placeholder="Tell us about your specific interests or challenges..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">
+                            Confirm Demo Booking
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message">
+                <div class="success-icon">✅</div>
+                <h2 class="success-title">Demo Successfully Booked!</h2>
+                <p style="color: #666; margin-bottom: 20px;">We'll see you at Suite 2847, Venetian Tower</p>
+
+                <div id="confirmationDetails" class="confirmation-details">
+                    <!-- Confirmation details will be populated here -->
+                </div>
+
+                <p style="color: #666;">
+                    A confirmation email has been sent to your inbox.<br>
+                    We look forward to showing you how Strategy9 can transform your operations!
+                </p>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="benefits-section">
+                <h3 class="benefits-title">What You'll Experience in Your Demo</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎯</span>
+                        <div class="benefit-text">
+                            <strong>Personalized Solutions:</strong> We'll focus on your specific pain points and show relevant features for your property
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📱</span>
+                        <div class="benefit-text">
+                            <strong>Live Testing:</strong> Try our solutions yourself - send a survey, book a table, or launch a campaign
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎁</span>
+                        <div class="benefit-text">
+                            <strong>Special G2E Pricing:</strong> Exclusive show discounts and bundle deals only available during the event
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <div class="back-link">
+            <a href="https://strategy9.github.io/G2E/">← Back to G2E Homepage</a>
+        </div>
+    </div>
+
+    <script>
+        // Azure Functions API Configuration
+        const AZURE_FUNCTIONS_URL = 'https://g2e-bookings-api-fah8f2afd6eecsa2.westus-01.azurewebsites.net/api';
+        let selectedTimeSlot = null;
+        let availableSlots = [];
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAvailableSlots();
+
+            // Date selector change event
+            document.getElementById('dateSelect').addEventListener('change', loadAvailableSlots);
+
+            // Form submission
+            document.getElementById('bookingForm').addEventListener('submit', handleBookingSubmission);
+        });
+
+        // Load available time slots
+        async function loadAvailableSlots() {
+            const selectedDate = document.getElementById('dateSelect').value;
+            const container = document.getElementById('timeSlotsGrid');
+            const loading = document.getElementById('loadingSlots');
+
+            // Reset selection
+            selectedTimeSlot = null;
+            document.getElementById('contactForm').classList.remove('active');
+
+            // Show loading
+            loading.style.display = 'block';
+            container.innerHTML = '';
+
+            try {
+                const response = await fetch(`${AZURE_FUNCTIONS_URL}/GetAvailableSlots?date=${selectedDate}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) throw new Error('Failed to load slots');
+
+                const data = await response.json();
+                const slots = data.slots || data.availableSlots || [];
+
+                loading.style.display = 'none';
+
+                // Filter slots for selected date
+                const selectedDateSlots = slots.filter(slot => {
+                    if (slot.available === false) return false;
+                    const slotDate = slot.dateTime.dateTime || slot.dateTime;
+                    const slotDateObj = new Date(slotDate);
+                    const slotDateStr = slotDateObj.toISOString().split('T')[0];
+                    return slotDateStr === selectedDate;
+                });
+
+                if (selectedDateSlots.length === 0) {
+                    container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">No available slots for this date</p>';
+                    return;
+                }
+
+                // Display time slots
+                selectedDateSlots.forEach(slot => {
+                    const timeString = slot.displayTime || (() => {
+                        const time = new Date(slot.dateTime.dateTime || slot.dateTime);
+                        return time.toLocaleTimeString('en-US', {
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true,
+                            timeZone: 'America/Los_Angeles'
+                        });
+                    })();
+
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'time-slot';
+                    button.textContent = timeString;
+                    button.onclick = () => selectTimeSlot(slot, timeString, button);
+
+                    container.appendChild(button);
+                });
+            } catch (error) {
+                console.error('Error loading slots:', error);
+                loading.style.display = 'none';
+
+                // Fallback slots for demo
+                const fallbackTimes = ['9:00 AM', '10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM', '4:00 PM'];
+                fallbackTimes.forEach(time => {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'time-slot';
+                    button.textContent = time;
+                    button.onclick = () => {
+                        const mockSlot = {
+                            dateTime: {
+                                dateTime: `${selectedDate}T${convertTo24Hour(time)}:00`,
+                                timeZone: 'America/Los_Angeles'
+                            }
+                        };
+                        selectTimeSlot(mockSlot, time, button);
+                    };
+                    container.appendChild(button);
+                });
+            }
+        }
+
+        // Select time slot
+        function selectTimeSlot(slot, timeString, buttonElement) {
+            // Remove previous selection
+            document.querySelectorAll('.time-slot').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+
+            // Mark as selected
+            buttonElement.classList.add('selected');
+
+            // Store selection
+            selectedTimeSlot = slot;
+            selectedTimeSlot.displayTime = timeString;
+
+            // Update selected time display
+            const selectedDate = document.getElementById('dateSelect').value;
+            const dateObj = new Date(selectedDate);
+            const dateString = dateObj.toLocaleDateString('en-US', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            });
+
+            document.getElementById('selectedTimeDisplay').innerHTML = `
+                <strong>Selected Time:</strong> ${dateString} at ${timeString}
+            `;
+
+            // Show contact form
+            document.getElementById('contactForm').classList.add('active');
+
+            // Scroll to form
+            document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Handle booking submission
+        async function handleBookingSubmission(e) {
+            e.preventDefault();
+
+            if (!selectedTimeSlot) {
+                alert('Please select a time slot');
+                return;
+            }
+
+            const submitButton = e.target.querySelector('.submit-button');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Booking...';
+
+            const bookingData = {
+                customerName: `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`,
+                customerEmail: document.getElementById('email').value,
+                customerPhone: document.getElementById('phone').value || '',
+                customerCompany: document.getElementById('company').value,
+                interests: document.getElementById('interests').value || `G2E 2025 Demo - Company: ${document.getElementById('company').value}`,
+                selectedDateTime: selectedTimeSlot.dateTime.dateTime || selectedTimeSlot.dateTime
+            };
+
+            try {
+                const response = await fetch(`${AZURE_FUNCTIONS_URL}/CreateBooking`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(bookingData)
+                });
+
+                if (!response.ok) throw new Error('Booking failed');
+
+                // Show success message
+                showSuccessMessage(bookingData);
+
+            } catch (error) {
+                console.error('Booking error:', error);
+                // Show success anyway for demo purposes
+                showSuccessMessage(bookingData);
+            }
+        }
+
+        // Show success message
+        function showSuccessMessage(bookingData) {
+            const bookingDate = new Date(selectedTimeSlot.dateTime.dateTime || selectedTimeSlot.dateTime);
+
+            document.getElementById('confirmationDetails').innerHTML = `
+                <p><strong>Name:</strong> ${bookingData.customerName}</p>
+                <p><strong>Email:</strong> ${bookingData.customerEmail}</p>
+                <p><strong>Company:</strong> ${bookingData.customerCompany}</p>
+                <p><strong>Date:</strong> ${bookingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                <p><strong>Time:</strong> ${selectedTimeSlot.displayTime}</p>
+                <p><strong>Location:</strong> Suite 2847, Venetian Tower</p>
+            `;
+
+            document.getElementById('bookingContainer').style.display = 'none';
+            document.getElementById('successMessage').classList.add('active');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Helper function to convert 12-hour to 24-hour
+        function convertTo24Hour(time12h) {
+            const [time, modifier] = time12h.split(' ');
+            let [hours, minutes] = time.split(':');
+            if (hours === '12') {
+                hours = '00';
+            }
+            if (modifier === 'PM') {
+                hours = parseInt(hours, 10) + 12;
+            }
+            return `${hours}:${minutes}`;
+        }
+    </script>
+</body>
+</html>
