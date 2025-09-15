@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Strategy9 at G2E 2025 - Transform Your Casino & Hospitality Operations</title>
+    <meta name="description" content="Visit Strategy9 at G2E 2025, Suite# TBD. Discover our integrated technology solutions for casinos and hospitality businesses.">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#005b8c">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="shortcut icon" href="https://strategy9.github.io/G2E/favicon.svg" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #005b8c;
+            --secondary-color: #40b2e3;
+            --accent-color: #2c3e50;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --info-color: #3498db;
+            --light-bg: #f5f5f5;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --hover-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* INTRO HERO SECTIONS - NFL STYLE */
+        .intro-hero {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: all 2s ease-in-out;
+            z-index: 100;
+        }
+
+        .intro-hero.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .intro-hero.fade-out {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .intro-hero.show-immediately {
+            opacity: 1;
+            transform: scale(1);
+            transition: none;
+        }
+
+        /* Hero 1 - Technology Background */
+        #intro-hero1 {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 91, 140, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%),
+                url('Vegas.jpg') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #intro-hero1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 91, 140, 0.1) 0%, transparent 50%, rgba(64, 178, 227, 0.1) 100%);
+            animation: pulse 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.5; }
+        }
+
+        /* Hero 2 - G2E Focus */
+        #intro-hero2 {
+            background: 
+                linear-gradient(45deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 91, 140, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%),
+                url('Vegas.jpg')
+        }
+
+        #intro-hero2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(64, 178, 227, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 91, 140, 0.05) 0%, transparent 50%);
+            animation: shimmer 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes shimmer {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.5; }
+        }
+
+        /* Enhanced text readability over images */
+        .intro-hero1-content, .intro-hero2-content {
+            text-align: center;
+            z-index: 3;
+            position: relative;
+            max-width: 1200px;
+            padding: 0 40px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(1px);
+        }
+
+        .intro-hero1-badge {
+            background: rgba(64, 178, 227, 0.2);
+            border: 2px solid #40b2e3;
+            color: #40b2e3;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            display: inline-block;
+            backdrop-filter: blur(15px);
+            animation: glow 3s ease-in-out infinite alternate;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(64, 178, 227, 0.3); }
+            to { box-shadow: 0 0 40px rgba(64, 178, 227, 0.6); }
+        }
+
+        .intro-hero1-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #40b2e3 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-shadow: 0 0 50px rgba(64, 178, 227, 0.5);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.8));
+        }
+
+        .intro-hero1-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .intro-hero2-date {
+            background: linear-gradient(135deg, #40b2e3, #005b8c);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            display: inline-block;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(64, 178, 227, 0.3);
+            transform: perspective(1000px) rotateX(5deg);
+            backdrop-filter: blur(10px);
+        }
+
+        .intro-hero2-title {
+            font-size: 5rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.9));
+        }
+
+        .intro-hero2-location {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #40b2e3 0%, #ffffff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+        }
+
+        .intro-hero2-cta {
+            background: linear-gradient(135deg, #40b2e3, #005b8c);
+            color: white;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(64, 178, 227, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .intro-hero2-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(64, 178, 227, 0.6);
+        }
+
+        /* Main Website Content - Initially Hidden */
+        #main-content {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1.5s ease-in-out;
+            display: none;
+        }
+
+        #main-content.show {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        /* Skip intro button */
+        .skip-intro {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skip-intro:hover {
+            background: rgba(64, 178, 227, 0.2);
+            border-color: #40b2e3;
+        }
+
+        /* Responsive Design for Intro */
+        @media (max-width: 768px) {
+            .intro-hero1-title, .intro-hero2-title {
+                font-size: 3rem;
+            }
+            
+            .intro-hero {
+                padding: 0 20px;
+            }
+            
+            .intro-hero1-content, .intro-hero2-content {
+                padding: 0 20px;
+            }
+        }
+
+        /* ORIGINAL STYLING CONTINUES BELOW */
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #005b8c 0%, #003d5c 100%);
+            color: white;
+            padding: 60px 20px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: repeating-linear-gradient( 45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px );
+                animation: slide 20s linear infinite;
+            }
+
+        @keyframes slide {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .location-info {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* PWA Explainer Section */
+        .pwa-section {
+            background: white;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pwa-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .benefit-card::before {
+                content: '';
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                background: linear-gradient(45deg, #40b2e3, #005b8c, #3498db, #40b2e3);
+                border-radius: 15px;
+                opacity: 0;
+                z-index: -1;
+                transition: opacity 0.3s ease;
+            }
+
+            .benefit-card:hover {
+                transform: translateY(-10px);
+                box-shadow: var(--hover-shadow);
+            }
+
+                .benefit-card:hover::before {
+                    opacity: 1;
+                }
+
+        .benefit-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .benefit-title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        /* Products Section */
+        .products-section {
+            background: var(--light-bg);
+            padding: 60px 20px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+            .product-card:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--hover-shadow);
+                border-top-color: var(--primary-color);
+            }
+
+        .product-name {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .product-features {
+            list-style: none;
+            padding: 0;
+        }
+
+            .product-features li {
+                padding: 5px 0;
+                padding-left: 25px;
+                position: relative;
+            }
+
+                .product-features li::before {
+                    content: '✓';
+                    position: absolute;
+                    left: 0;
+                    color: var(--success-color);
+                    font-weight: bold;
+                }
+
+        /* Why PWA Section */
+        .why-pwa {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .pwa-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .comparison-item {
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 10px;
+        }
+
+            .comparison-item.highlight {
+                background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+                color: white;
+                transform: scale(1.05);
+            }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #003d5c 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+            .cta-button.primary {
+                background: var(--secondary-color);
+                color: white;
+            }
+
+                .cta-button.primary:hover {
+                    background: #5bc0eb;
+                }
+
+            .cta-button.secondary {
+                background: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+
+            .cta-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--light-bg);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+            .footer-links a {
+                color: white;
+                text-decoration: none;
+                opacity: 0.8;
+                transition: opacity 0.3s ease;
+            }
+
+                .footer-links a:hover {
+                    opacity: 1;
+                }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .logo {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pwa-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-item.highlight {
+                transform: scale(1);
+            }
+
+            /* Gamification section mobile styles */
+            .gamification-content {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+            }
+
+            .gamification-demo {
+                position: static !important;
+                order: -1;
+            }
+
+                .gamification-demo iframe {
+                    height: 400px !important;
+                }
+        }
+
+        /* Special G2E Badge */
+        .g2e-badge {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: var(--card-shadow);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Intro Button -->
+    <button class="skip-intro" onclick="skipIntro()">Skip Intro</button>
+
+    <!-- Hero Section 1 - Technology Power -->
+    <div id="intro-hero1" class="intro-hero">
+        <div class="intro-hero1-content">
+            <div class="intro-hero1-badge">Next-Generation Technology</div>
+            <h1 class="intro-hero1-title">STRATEGY9</h1>
+            <p class="intro-hero1-subtitle">Transforming Casino & Hospitality Through Intelligent Technology Solutions</p>
+        </div>
+    </div>
+
+    <!-- Hero Section 2 - G2E Event -->
+    <div id="intro-hero2" class="intro-hero">
+        <div class="intro-hero2-content">
+            <div class="intro-hero2-date">October 7-9, 2025</div>
+            <h1 class="intro-hero2-title">G2E 2025</h1>
+            <p class="intro-hero2-location">Suite# TBD, Venetian Tower</p>
+            <button class="intro-hero2-cta" onclick="showMainSite()">Discover Our Solutions</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT STARTS HERE - ALL YOUR ORIGINAL CONTENT -->
+    <div id="main-content">
+        <!-- G2E Badge -->
+        <div class="g2e-badge">
+            📍 Suite# TBD, Venetian
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="logo"><img src="s9logo.png" width="400px;" /></div>
+                <div class="tagline">Transforming Casino & Hospitality Technology</div>
+
+                <div class="event-badge">
+                    🎰 G2E 2025 | October 7-9, 2025
+                </div>
+
+                <div class="location-info">
+                    <h3>Visit Us at The Venetian Expo</h3>
+                    <p><strong>Suite# TBD, Venetian</strong></p>
+                    <p>Experience live demos of our integrated technology solutions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Showcase Section -->
+        <section class="demo-showcase" style="background: white; padding: 60px 20px; text-align: center;">
+            <h2 class="section-title">Try Our G2E 2025 Demo App</h2>
+            <p class="section-subtitle">
+                Experience the power of Progressive Web Apps firsthand. No app store needed!
+            </p>
+
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <!-- Phone Mockup with Screenshot -->
+                <div style="display: inline-block; position: relative; margin: 30px 0;">
+                    <div style="width: 300px; height: 600px; background: #1a1a1a; border-radius: 35px; padding: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%); border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; position: relative; overflow: hidden;">
+                            <!-- Simulated PWA Interface -->
+                            <div style="position: absolute; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.1); padding: 15px; backdrop-filter: blur(10px);">
+                                <div style="font-size: 0.9em; opacity: 0.9;">G2E 2025 Survey Demo</div>
+                            </div>
+
+                            <div style="padding: 20px; text-align: center;">
+                                <div style="font-size: 1.8em; margin-bottom: 20px;">📊</div>
+                                <h3 style="font-size: 1.2em; margin-bottom: 15px;">How satisfied were you with the G2E registration process?</h3>
+
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; margin: 10px 0;">
+                                    😊 Very Satisfied
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; margin: 10px 0;">
+                                    🙂 Satisfied
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; margin: 10px 0;">
+                                    😐 Neutral
+                                </div>
+
+                                <div style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+                                    Real-time results • No download required
+                                </div>
+                            </div>
+
+                            <!-- Book Demo Button Preview -->
+                            <div style="position: absolute; bottom: 20px;">
+                                <div style="background: white; color: #005b8c; padding: 10px 20px; border-radius: 25px; font-weight: bold;">
+                                    Book Discussion / Demo
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA and Instructions -->
+                <div style="margin-top: 40px;">
+                    <a href="https://strategy9.github.io/G2E/" target="_blank" class="cta-button primary" style="font-size: 1.3em; padding: 20px 40px;">
+                        🚀 Launch Demo App
+                    </a>
+                    <p style="margin-top: 15px; color: #666;">
+                        Works instantly in any browser • No download required
+                    </p>
+                </div>
+
+                <!-- Installation Instructions -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; text-align: left;">
+                    <div style="background: #f5f5f5; padding: 30px; border-radius: 15px;">
+                        <h3 style="color: #005b8c; margin-bottom: 15px;">📱 Install on iPhone/iPad</h3>
+                        <ol style="color: #666; line-height: 1.8;">
+                            <li>Open <strong>Safari</strong> (must use Safari)</li>
+                            <li>Visit <code style="background: white; padding: 2px 6px; border-radius: 3px;">strategy9.github.io/G2E</code></li>
+                            <li>Tap the <strong>Share button</strong> <span style="display: inline-block; transform: translateY(2px);">⬆️</span></li>
+                            <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+                            <li>Name it "Strategy9 G2E" and tap <strong>Add</strong></li>
+                            <li>Launch from your home screen like any app!</li>
+                        </ol>
+                    </div>
+
+                    <div style="background: #f5f5f5; padding: 30px; border-radius: 15px;">
+                        <h3 style="color: #005b8c; margin-bottom: 15px;">🤖 Install on Android</h3>
+                        <ol style="color: #666; line-height: 1.8;">
+                            <li>Open <strong>Chrome</strong> browser</li>
+                            <li>Visit <code style="background: white; padding: 2px 6px; border-radius: 3px;">strategy9.github.io/G2E</code></li>
+                            <li>Tap the <strong>3-dot menu</strong> ⋮</li>
+                            <li>Select <strong>"Add to Home screen"</strong></li>
+                            <li>Name it "Strategy9 G2E" and tap <strong>Add</strong></li>
+                            <li>Launch from your home screen - it's now an app!</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Feature Highlights -->
+                <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%); border-radius: 15px; color: white;">
+                    <h3 style="font-size: 1.5em; margin-bottom: 20px;">What's Inside Our G2E Demo App?</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 10px;">📊</div>
+                            <strong>Live Surveys</strong>
+                            <p style="font-size: 0.9em; opacity: 0.9;">Real-time feedback with instant results</p>
+                        </div>
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 10px;">📅</div>
+                            <strong>Demo Booking</strong>
+                            <p style="font-size: 0.9em; opacity: 0.9;">Schedule your Strategy9 Discussion / Demo at our suite</p>
+                        </div>
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 10px;">📈</div>
+                            <strong>Live Analytics</strong>
+                            <p style="font-size: 0.9em; opacity: 0.9;">See real-time data visualization</p>
+                        </div>
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 10px;">⚡</div>
+                            <strong>Offline Mode</strong>
+                            <p style="font-size: 0.9em; opacity: 0.9;">Works even without internet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QR Code Section -->
+                <div style="margin-top: 40px; padding: 30px; background: white; border: 2px solid #e0e0e0; border-radius: 15px;">
+                    <h3 style="color: #005b8c; margin-bottom: 15px;">📲 Quick Access at G2E</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Scan this QR code at our booth to instantly access the demo:</p>
+                    <div style="width: 200px; height: 200px; margin: 0 auto; background: #f5f5f5; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 4px solid #005b8c;">
+                        <div style="color: #999;">[QR Code Placeholder]</div>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                        Or visit: <strong>strategy9.github.io/G2E</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why PWA Section -->
+        <section class="why-pwa">
+            <h2 class="section-title">Why Progressive Web Apps?</h2>
+            <p class="section-subtitle">
+                Your customers already have browsers. Give them an app experience without the app store.
+            </p>
+
+            <div class="pwa-comparison">
+                <div class="comparison-item">
+                    <h3>Traditional Apps</h3>
+                    <p>📱 Must download from store</p>
+                    <p>💾 Takes up phone storage</p>
+                    <p>🔄 Manual updates required</p>
+                    <p>💰 App store fees (30%)</p>
+                    <p>⏱️ Weeks for approval</p>
+                </div>
+
+                <div class="comparison-item highlight">
+                    <h3>Progressive Web Apps</h3>
+                    <p>🌐 Works instantly in browser</p>
+                    <p>⚡ Lightweight & fast</p>
+                    <p>🔄 Auto-updates seamlessly</p>
+                    <p>💵 No app store fees</p>
+                    <p>🚀 Deploy instantly</p>
+                </div>
+
+                <div class="comparison-item">
+                    <h3>Traditional Websites</h3>
+                    <p>🖥️ Desktop-focused</p>
+                    <p>📵 No offline access</p>
+                    <p>🔔 No push notifications</p>
+                    <p>📱 Poor mobile experience</p>
+                    <p>🏠 Can't add to home screen</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PWA Benefits Section -->
+        <section class="pwa-section">
+            <h2 class="section-title">Perfect for Casinos & Hospitality</h2>
+            <p class="section-subtitle">
+                Engage guests instantly. No downloads. No friction. Just results.
+            </p>
+
+            <div class="pwa-benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-title">Instant Access</div>
+                    <p>Guests access your services immediately - no app store, no downloads, no passwords</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <div class="benefit-title">Works Everywhere</div>
+                    <p>One solution for iPhone, Android, tablets, and desktops - maintain one codebase</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-title">Save Money</div>
+                    <p>No app store fees, no separate iOS/Android teams, update instantly without approval</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-title">Real-Time Analytics</div>
+                    <p>Track engagement instantly, A/B test features, and optimize on the fly</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔔</div>
+                    <div class="benefit-title">Push Notifications</div>
+                    <p>Re-engage guests with timely offers, event reminders, and personalized messages</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔒</div>
+                    <div class="benefit-title">Secure & Compliant</div>
+                    <p>HTTPS encryption, secure contexts, and compliance-ready for gaming regulations</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Marketing Gamification Section -->
+        <section style="background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%); color: white; padding: 60px 20px; border-bottom: 1px solid rgba(64, 178, 227, 0.2);">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="text-align: center; font-size: 2.2em; color: #40b2e3; margin-bottom: 20px;">Interactive Marketing Gamification</h2>
+                <div class="gamification-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+                    <div>
+                        <h3 style="color: #40b2e3; font-size: 1.8rem; margin-bottom: 20px;">Turn Data Collection Into Engaging Experiences</h3>
+                        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; color: #e0e0e0;">Strategy9's gamification solutions transform traditional marketing touchpoints into interactive experiences that guests actually want to participate in. Our Marketing Metrics Cascade game demonstrates how complex data concepts can become engaging, shareable content.</p>
+
+                        <div style="margin: 40px 0;">
+                            <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; padding: 20px; background: rgba(64, 178, 227, 0.05); border-radius: 10px; border-left: 4px solid #40b2e3;">
+                                <div style="font-size: 1.5rem; flex-shrink: 0;">🎯</div>
+                                <div>
+                                    <strong style="color: #40b2e3; display: block; margin-bottom: 5px;">Higher Engagement Rates</strong>
+                                    <p style="margin: 0; font-size: 0.95rem; color: #b0b0b0;">Interactive games achieve 3-5x higher participation than traditional surveys</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; padding: 20px; background: rgba(64, 178, 227, 0.05); border-radius: 10px; border-left: 4px solid #40b2e3;">
+                                <div style="font-size: 1.5rem; flex-shrink: 0;">📊</div>
+                                <div>
+                                    <strong style="color: #40b2e3; display: block; margin-bottom: 5px;">Rich Customer Data</strong>
+                                    <p style="margin: 0; font-size: 0.95rem; color: #b0b0b0;">Collect behavioral insights, preferences, and contact information naturally</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; padding: 20px; background: rgba(64, 178, 227, 0.05); border-radius: 10px; border-left: 4px solid #40b2e3;">
+                                <div style="font-size: 1.5rem; flex-shrink: 0;">🎁</div>
+                                <div>
+                                    <strong style="color: #40b2e3; display: block; margin-bottom: 5px;">Reward Integration</strong>
+                                    <p style="margin: 0; font-size: 0.95rem; color: #b0b0b0;">Seamlessly connect achievements to your existing loyalty and reward programs</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; padding: 20px; background: rgba(64, 178, 227, 0.05); border-radius: 10px; border-left: 4px solid #40b2e3;">
+                                <div style="font-size: 1.5rem; flex-shrink: 0;">📱</div>
+                                <div>
+                                    <strong style="color: #40b2e3; display: block; margin-bottom: 5px;">Social Sharing</strong>
+                                    <p style="margin: 0; font-size: 0.95rem; color: #b0b0b0;">Games encourage organic social media sharing, expanding your reach</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(0, 91, 140, 0.1); padding: 25px; border-radius: 10px; border: 1px solid rgba(64, 178, 227, 0.3);">
+                            <h4 style="color: #40b2e3; margin-bottom: 15px; font-size: 1.2rem;">Perfect for Casino & Hospitality:</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: 12px; padding-left: 20px; position: relative; color: #e0e0e0; line-height: 1.5;"><span style="position: absolute; left: 0;">🎯</span><strong style="color: #40b2e3;">Welcome Kiosks:</strong> New guests play to unlock amenity information and earn welcome bonuses</li>
+                                <li style="margin-bottom: 12px; padding-left: 20px; position: relative; color: #e0e0e0; line-height: 1.5;"><span style="position: absolute; left: 0;">🎯</span><strong style="color: #40b2e3;">Dining Experiences:</strong> Menu-based matching games that collect dining preferences</li>
+                                <li style="margin-bottom: 12px; padding-left: 20px; position: relative; color: #e0e0e0; line-height: 1.5;"><span style="position: absolute; left: 0;">🎯</span><strong style="color: #40b2e3;">Event Promotion:</strong> Tournament-style games that build excitement for upcoming shows or promotions</li>
+                                <li style="margin-bottom: 12px; padding-left: 20px; position: relative; color: #e0e0e0; line-height: 1.5;"><span style="position: absolute; left: 0;">🎯</span><strong style="color: #40b2e3;">Loyalty Onboarding:</strong> Progressive games that educate about your rewards program while gathering profile data</li>
+                                <li style="margin-bottom: 12px; padding-left: 20px; position: relative; color: #e0e0e0; line-height: 1.5;"><span style="position: absolute; left: 0;">🎯</span><strong style="color: #40b2e3;">Feedback Collection:</strong> Make satisfaction surveys feel like achievement-based challenges</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="gamification-demo" style="position: sticky; top: 100px;">
+                        <div style="background: #000; border-radius: 15px; border: 3px solid #40b2e3; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);">
+                            <iframe src="game.html" frameborder="0" width="100%" height="1100" style="border-radius: 12px;"></iframe>
+                        </div>
+                        <p style="text-align: center; margin-top: 15px; color: #b0b0b0; font-size: 0.9rem;">
+                            <strong style="color: #40b2e3;">Try our Marketing Metrics Cascade!</strong><br>
+                            This demo shows how marketing concepts become engaging gameplay.
+                            <a href="game.html" target="_blank" style="color: #40b2e3; text-decoration: none;">Open full version →</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <h2 class="section-title">Our Integrated Solutions Suite</h2>
+            <p class="section-subtitle">
+                Everything you need to understand, engage, and grow your customer base
+            </p>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-name">🎲 PlayerIQ</div>
+                    <div class="product-description">
+                        Complete casino and hospitality marketing platform
+                    </div>
+                    <ul class="product-features">
+                        <li>SMS campaign management with segmentation</li>
+                        <li>Comprehensive contests for data collection</li>
+                        <li>Queue Manager for waitlists & reservations</li>
+                        <li>Player tracking and loyalty integration</li>
+                        <li>Real-time analytics dashboard</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">📧 EmailIQ</div>
+                    <div class="product-description">
+                        Smart email marketing automation for hospitality
+                    </div>
+                    <ul class="product-features">
+                        <li>Automated campaign workflows</li>
+                        <li>Personalized guest communications</li>
+                        <li>Event and promotion announcements</li>
+                        <li>Advanced segmentation tools</li>
+                        <li>A/B testing and optimization</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">📊 SurveyIQ</div>
+                    <div class="product-description">
+                        Instant feedback collection with real-time results
+                    </div>
+                    <ul class="product-features">
+                        <li>QR code and link-based surveys</li>
+                        <li>Real-time results visualization</li>
+                        <li>Anonymous and tracked responses</li>
+                        <li>Custom branding options</li>
+                        <li>Export to Excel and PDF reports</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">👥 EmployeeIQ</div>
+                    <div class="product-description">
+                        Staff management and communication platform
+                    </div>
+                    <ul class="product-features">
+                        <li>Employee scheduling and shifts</li>
+                        <li>Internal communications hub</li>
+                        <li>Training and certification tracking</li>
+                        <li>Performance management tools</li>
+                        <li>HR document management</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">🎰 TableIQ</div>
+                    <div class="product-description">
+                        Simplified table games accounting for small casinos
+                    </div>
+                    <ul class="product-features">
+                        <li>Drop and win tracking</li>
+                        <li>Shift reports and summaries</li>
+                        <li>Variance analysis tools</li>
+                        <li>Regulatory compliance reports</li>
+                        <li>Multi-property support</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">📶 WiFiIQ</div>
+                    <div class="product-description">
+                        Guest WiFi with marketing intelligence
+                    </div>
+                    <ul class="product-features">
+                        <li>Branded captive portal</li>
+                        <li>Social media login integration</li>
+                        <li>Guest data collection</li>
+                        <li>Bandwidth management</li>
+                        <li>Location analytics and heat maps</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="section-title" style="color: white;">See It In Action at G2E 2025</h2>
+            <p style="font-size: 1.2em; margin-bottom: 10px;">
+                Don't just read about it - experience the future of casino technology
+            </p>
+            <p style="opacity: 0.9;">
+                Strategy9 Discussion / Demo every 30 minutes at our suite
+            </p>
+
+            <div class="cta-buttons">
+                <button class="cta-button primary" onclick="openBookingModal()">
+                    📅 Book Your Strategy9 Talk / Demo
+                </button>
+                <a href="/G2E/" class="cta-button secondary">
+                    🎮 Try Live Demo Now
+                </a>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <h2 class="section-title">Stay Connected</h2>
+            <p>Get the latest updates on our products and exclusive G2E offers</p>
+
+            <button onclick="openNewsletterModal()" class="cta-button primary" style="background: var(--primary-color); padding: 15px 40px; font-size: 1.1em;">
+                📧 Join Our Newsletter
+            </button>
+
+            <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                Powered by EmailIQ - Our intelligent email marketing platform
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#products">Products</a>
+                <a href="#demo">Schedule Demo</a>
+                <a href="#contact">Contact</a>
+                <a href="https://strategy9.com">Strategy9.com</a>
+            </div>
+
+            <p style="margin-top: 20px; opacity: 0.8;">
+                © 2025 Strategy9. Transforming hospitality technology since 1999.
+            </p>
+
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.6;">
+                G2E 2025 | October 7-9 | The Venetian Expo, Las Vegas
+            </p>
+        </footer>
+
+        <!-- Newsletter Modal -->
+        <div id="newsletterModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
+            <div style="background: white; border-radius: 20px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; margin: auto;">
+                <div style="background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%); color: white; padding: 30px; border-radius: 20px 20px 0 0;">
+                    <h2 style="margin: 0; font-size: 1.8em; color: white;">Join Our Newsletter</h2>
+                    <p style="margin: 10px 0 0 0; opacity: 0.9;">Stay updated on Strategy9 innovations and G2E exclusives</p>
+                </div>
+
+                <div style="padding: 30px;">
+                    <div id="newsletterContent">
+                        <form id="emailIQForm">
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 5px; color: #666; font-weight: bold;">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em;">
+                            </div>
+
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 5px; color: #666; font-weight: bold;">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em;">
+                            </div>
+
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 5px; color: #666; font-weight: bold;">Email Address *</label>
+                                <input type="email" id="emailAddress" name="email" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em;">
+                            </div>
+
+                            <div style="margin-bottom: 25px;">
+                                <label style="display: block; margin-bottom: 5px; color: #666; font-weight: bold;">Company (Optional)</label>
+                                <input type="text" id="company" name="company" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em;">
+                            </div>
+
+                            <button type="submit" class="cta-button primary" style="width: 100%; padding: 15px; font-size: 1.1em; background: var(--primary-color); border: none; color: white; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;">
+                                Subscribe to Newsletter
+                            </button>
+
+                            <p style="margin-top: 15px; font-size: 0.85em; color: #999; text-align: center;">
+                                We respect your privacy. Unsubscribe at any time.
+                            </p>
+                        </form>
+                    </div>
+
+                    <!-- Success Message -->
+                    <div id="newsletterSuccess" style="display: none; text-align: center; padding: 40px;">
+                        <div style="font-size: 4em; margin-bottom: 20px;">📧</div>
+                        <h3 style="color: #005b8c; margin-bottom: 10px;">Welcome to Strategy9 Updates!</h3>
+                        <p style="color: #666; margin-bottom: 20px;">Thank you for subscribing. Check your email for a confirmation message.</p>
+                        <p style="color: #40b2e3; font-weight: bold;">See you at G2E 2025!</p>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="newsletterError" style="display: none; text-align: center; padding: 40px;">
+                        <div style="font-size: 4em; margin-bottom: 20px;">⚠️</div>
+                        <h3 style="color: #d32f2f; margin-bottom: 10px;">Subscription Error</h3>
+                        <p style="color: #666; margin-bottom: 20px;">We couldn't process your subscription. Please try again or contact us directly.</p>
+                        <button onclick="resetNewsletterModal()" class="cta-button primary" style="padding: 10px 30px;">
+                            Try Again
+                        </button>
+                    </div>
+                </div>
+
+                <button onclick="closeNewsletterModal()" style="position: absolute; top: 15px; right: 15px; background: white; border: none; font-size: 1.5em; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333;">
+                    ✕
+                </button>
+            </div>
+        </div>
+
+        <!-- Booking Modal -->
+        <div id="bookingModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
+            <div style="background: white; border-radius: 20px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; margin: auto;">
+                <div style="background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%); color: white; padding: 30px; border-radius: 20px 20px 0 0;">
+                    <h2 style="margin: 0; font-size: 1.8em; color: white;">Book Your Strategy9 Discussion / Demo</h2>
+                    <p style="margin: 10px 0 0 0; opacity: 0.9;">30-minute personalized demonstration</p>
+                </div>
+
+                <div style="padding: 30px;">
+                    <div id="bookingContent">
+                        <!-- Time Slots -->
+                        <div id="timeSlotSection">
+                            <h3 style="color: #005b8c; margin-bottom: 15px;">Select a Time</h3>
+                            <div id="dateSelector" style="margin-bottom: 20px;">
+                                <select id="dateSelect" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em;">
+                                    <option value="2025-10-07">Tuesday, October 7</option>
+                                    <option value="2025-10-08">Wednesday, October 8</option>
+                                    <option value="2025-10-09">Thursday, October 9</option>
+                                </select>
+                            </div>
+                            <div id="loadingSlots" style="text-align: center; padding: 20px; display: none;">
+                                <div style="color: #40b2e3;">Loading available times...</div>
+                            </div>
+                            <div id="timeSlotsContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px;">
+                                <!-- Time slots will be populated here -->
+                            </div>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div id="contactFormSection" style="display: none; margin-top: 20px;">
+                            <h3 style="color: #005b8c; margin-bottom: 15px;">Your Information</h3>
+                            <form id="bookingForm">
+                                <div style="margin-bottom: 15px;">
+                                    <label style="display: block; margin-bottom: 5px; color: #666;">Name *</label>
+                                    <input type="text" id="customerName" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px;">
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <label style="display: block; margin-bottom: 5px; color: #666;">Email *</label>
+                                    <input type="email" id="customerEmail" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px;">
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <label style="display: block; margin-bottom: 5px; color: #666;">Phone</label>
+                                    <input type="tel" id="customerPhone" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px;">
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <label style="display: block; margin-bottom: 5px; color: #666;">Company</label>
+                                    <input type="text" id="customerCompany" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px;">
+                                </div>
+                                <button type="submit" class="cta-button primary" style="width: 100%; padding: 15px; font-size: 1.1em;">
+                                    Confirm Booking
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Success Message -->
+                    <div id="bookingSuccess" style="display: none; text-align: center; padding: 40px;">
+                        <div style="font-size: 4em; margin-bottom: 20px;">✅</div>
+                        <h3 style="color: #005b8c; margin-bottom: 10px;">Strategy9 Discussion / Demo Booked Successfully!</h3>
+                        <p style="color: #666; margin-bottom: 20px;">We'll see you at Suite# TBD</p>
