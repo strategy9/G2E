@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CSFG6ZNME"></script>
-    <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9CSFG6ZNME');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Your Results - Strategy9 at G2E 2025</title>
@@ -20,7 +11,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="shortcut icon" href="https://g2e2025.strategy9.com/G2E/favicon.svg" />
+    <link rel="shortcut icon" href="https://g2e2025.strategy9.com/favicon.svg" />
 
     <style>
         * {
@@ -89,7 +80,6 @@
 
         .results-subheadline {
             font-size: 1.2em;
-            font-weight: 400;
             color: #666;
             max-width: 600px;
             margin: 0 auto;
@@ -146,30 +136,52 @@
             position: relative;
         }
 
-            .result-bar-fill.user-selected {
-                background: linear-gradient(135deg, #27ae60, #229954);
-                box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+        .result-bar-fill.user-selected {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+        }
+
+        .result-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 30%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
+            animation: shimmer 2s infinite;
+        }
+		
+		     /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+            .footer-links a {
+                color: white;
+                text-decoration: none;
+                opacity: 0.8;
+                transition: opacity 0.3s ease;
             }
 
-            .result-bar-fill::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                width: 30%;
-                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
-                animation: shimmer 2s infinite;
-            }
+                .footer-links a:hover {
+                    opacity: 1;
+                }
 
         @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         .result-percentage {
@@ -202,10 +214,10 @@
             text-align: center;
         }
 
-            .solution-spotlight h2 {
-                font-size: 2em;
-                margin-bottom: 20px;
-            }
+        .solution-spotlight h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
 
         .solution-features {
             display: grid;
@@ -293,17 +305,17 @@
             transition: all 0.3s ease;
         }
 
-            .time-slot-button:hover {
-                background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-                color: white;
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(64, 178, 227, 0.3);
-            }
+        .time-slot-button:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(64, 178, 227, 0.3);
+        }
 
-            .time-slot-button.selected {
-                background: var(--primary-color);
-                color: white;
-            }
+        .time-slot-button.selected {
+            background: var(--primary-color);
+            color: white;
+        }
 
         /* Contact Form */
         .contact-form {
@@ -331,38 +343,10 @@
             transition: border-color 0.3s ease;
         }
 
-            .form-input:focus {
-                outline: none;
-                border-color: var(--secondary-color);
-            }
-
-        /* Footer */
-        .footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
+        .form-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
         }
-
-        .footer-links {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-            .footer-links a {
-                color: white;
-                text-decoration: none;
-                opacity: 0.8;
-                transition: opacity 0.3s ease;
-            }
-
-                .footer-links a:hover {
-                    opacity: 1;
-                }
-
 
         .cta-button {
             padding: 20px 50px;
@@ -377,10 +361,10 @@
             margin-top: 20px;
         }
 
-            .cta-button:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
 
         /* Other Solutions */
         .other-solutions {
@@ -405,10 +389,10 @@
             border-left: 4px solid var(--secondary-color);
         }
 
-            .solution-card:hover {
-                transform: translateY(-5px);
-                box-shadow: var(--hover-shadow);
-            }
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
 
         .solution-name {
             font-size: 1.3em;
@@ -470,16 +454,15 @@
             animation: pulse 2s infinite;
         }
 
-            .floating-book-btn:hover {
-                transform: scale(1.05);
-                box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-            }
+        .floating-book-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
 
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
             }
-
             50% {
                 transform: scale(1.03);
             }
@@ -694,6 +677,17 @@
                         <input type="text" class="form-input" id="customerCompany" required>
                     </div>
 
+                    <div class="form-group">
+                        <label class="form-label">Annual Revenue</label>
+                        <select class="form-input" id="revenueRange">
+                            <option value="">Select range</option>
+                            <option value="Under $50M">Under $50M</option>
+                            <option value="$50M-$100M">$50M - $100M</option>
+                            <option value="$100M-$500M">$100M - $500M</option>
+                            <option value="Over $500M">Over $500M</option>
+                        </select>
+                    </div>
+
                     <input type="hidden" id="userPriority" value="">
 
                     <button type="submit" class="cta-button" style="width: 100%;">
@@ -751,7 +745,8 @@
             </div>
         </div>
     </section>
-	<!-- Footer -->
+	
+		<!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
             <a href="mailto:info@strategy9.com">info@strategy9.com</a>
@@ -922,37 +917,87 @@
         // Update results display with real data
         function updateResultsDisplay(stats, userPriority) {
             const resultsChart = document.getElementById('resultsChart');
-            const totalResponses = stats.totalResponses || 407;
+            const totalResponses = stats.totalResponses || 10;
             
-            // Map of answer values to display data
-            const answerMap = {
-                '5': { icon: '📈', text: 'Growing our player database' },
-                '4': { icon: '🎯', text: 'Understanding guest preferences better' },
-                '3': { icon: '💰', text: 'Reducing operational costs' },
-                '2': { icon: '⚡', text: 'Improving staff efficiency' },
-                '1': { icon: '📊', text: 'Increasing marketing ROI' }
+            // Map satisfaction labels to the correct priority labels
+            // This handles the bug where SurveyIQ returns satisfaction strings
+            const labelMap = {
+                'Very Satisfied': '📈 Growing our player database',
+                'Satisfied': '🎯 Understanding guest preferences better', 
+                'Neutral': '💰 Reducing operational costs',
+                'Dissatisfied': '⚡ Improving staff efficiency',
+                'Very Dissatisfied': '📊 Increasing marketing ROI'
             };
             
             let resultsHTML = '';
             
-            // Sort by percentage if we have real data
+            // If we have real data from the API
             if (stats.answerOptions && stats.answerOptions.length > 0) {
-                stats.answerOptions.sort((a, b) => b.percentage - a.percentage);
+                // Fix the labels and sort by percentage
+                const fixedResults = stats.answerOptions.map(option => {
+                    // Replace the wrong satisfaction text with the correct priority text
+                    const correctText = labelMap[option.text] || option.text;
+                    
+                    return {
+                        value: option.value || option.id,
+                        text: correctText,
+                        percentage: option.percentage || 0,
+                        count: option.count || 0
+                    };
+                });
                 
-                stats.answerOptions.forEach(option => {
-                    const percentage = option.percentage || 0;
-                    const count = option.count || 0;
-                    const isSelected = option.value == userPriority;
+                // Sort by percentage
+                fixedResults.sort((a, b) => b.percentage - a.percentage);
+                
+                fixedResults.forEach(option => {
+                    // Check if this is the user's selection
+                    // Map the priority parameter to the satisfaction value
+                    const priorityToSatisfactionMap = {
+                        '5': 'Very Satisfied',
+                        '4': 'Satisfied',
+                        '3': 'Neutral',
+                        '2': 'Dissatisfied',
+                        '1': 'Very Dissatisfied'
+                    };
+                    
+                    const isSelected = labelMap[option.text] === labelMap[priorityToSatisfactionMap[userPriority]];
                     
                     resultsHTML += `
                         <div class="result-item">
                             <div class="result-label">
                                 <span>${option.text}${isSelected ? ' <span class="your-choice-indicator">YOUR CHOICE</span>' : ''}</span>
-                                <span class="result-count">${count} executives</span>
+                                <span class="result-count">${option.count} executives</span>
                             </div>
                             <div class="result-bar-container">
-                                <div class="result-bar-fill ${isSelected ? 'user-selected' : ''}" style="width: ${percentage}%;">
-                                    <span class="result-percentage">${percentage}%</span>
+                                <div class="result-bar-fill ${isSelected ? 'user-selected' : ''}" style="width: ${option.percentage}%;">
+                                    <span class="result-percentage">${option.percentage}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                // Fallback display with correct labels
+                const fallbackData = [
+                    { text: '📈 Growing our player database', percentage: 35, count: 4 },
+                    { text: '🎯 Understanding guest preferences better', percentage: 24, count: 3 },
+                    { text: '💰 Reducing operational costs', percentage: 18, count: 2 },
+                    { text: '⚡ Improving staff efficiency', percentage: 13, count: 1 },
+                    { text: '📊 Increasing marketing ROI', percentage: 10, count: 1 }
+                ];
+                
+                fallbackData.forEach((option, index) => {
+                    const isSelected = (5 - index) == userPriority;
+                    
+                    resultsHTML += `
+                        <div class="result-item">
+                            <div class="result-label">
+                                <span>${option.text}${isSelected ? ' <span class="your-choice-indicator">YOUR CHOICE</span>' : ''}</span>
+                                <span class="result-count">${option.count} executives</span>
+                            </div>
+                            <div class="result-bar-container">
+                                <div class="result-bar-fill ${isSelected ? 'user-selected' : ''}" style="width: ${option.percentage}%;">
+                                    <span class="result-percentage">${option.percentage}%</span>
                                 </div>
                             </div>
                         </div>
