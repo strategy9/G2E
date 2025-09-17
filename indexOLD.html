@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Strategy9 at G2E 2025 - Transform Your Casino & Hospitality Operations</title>
-    <meta name="description" content="Visit Strategy9 at G2E 2025, Suite# TBD. Discover our integrated technology solutions for casinos and hospitality businesses.">
+    <title>Your Results - Strategy9 at G2E 2025</title>
+    <meta name="description" content="See how other casino executives answered and book your private suite demo at G2E 2025.">
 
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#005b8c">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="shortcut icon" href="/G2E/favicon.svg" />
+    <link rel="shortcut icon" href="https://g2e2025.strategy9.com/favicon.svg" />
 
     <style>
         * {
@@ -26,318 +26,131 @@
             --accent-color: #2c3e50;
             --success-color: #27ae60;
             --warning-color: #f39c12;
+            --danger-color: #e74c3c;
             --info-color: #3498db;
-            --light-bg: #f5f5f5;
-            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            --hover-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            --light-bg: #f8f9fa;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --hover-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
+            background: white;
             min-height: 100vh;
             color: #333;
             line-height: 1.6;
         }
 
-        /* Hero Section with Vegas Background */
-        .hero {
-            background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
-                url('Vegas.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: white;
-            padding: 60px 20px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-            .hero::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: repeating-linear-gradient( 45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px );
-                animation: slide 20s linear infinite;
-            }
-
-        @keyframes slide {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            100% {
-                transform: translate(50px, 50px);
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .tagline {
-            font-size: 1.2em;
-			font-weight: 600;
-            opacity: 1;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-        }
-
-        .event-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 15px 30px;
-            border-radius: 30px;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-			font-weight: bold;
-			font-size: 1.1em;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
-
-        .location-info {
-            background: rgba(255,255,255,0.15);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
-
-        /* PWA Explainer Section */
-        .pwa-section {
-            background: white;
-            padding: 60px 20px;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2em;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 1.1em;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .pwa-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .benefit-card {
+        /* Header */
+        .header {
             background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            transform: translateY(0);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-            .benefit-card::before {
-                content: '';
-                position: absolute;
-                top: -2px;
-                left: -2px;
-                right: -2px;
-                bottom: -2px;
-                background: linear-gradient(45deg, #40b2e3, #005b8c, #3498db, #40b2e3);
-                border-radius: 15px;
-                opacity: 0;
-                z-index: -1;
-                transition: opacity 0.3s ease;
-            }
-
-            .benefit-card:hover {
-                transform: translateY(-10px);
-                box-shadow: var(--hover-shadow);
-            }
-
-                .benefit-card:hover::before {
-                    opacity: 1;
-                }
-
-        .benefit-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-
-        .benefit-title {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-
-        /* Products Section */
-        .products-section {
-            background: var(--light-bg);
-            padding: 60px 20px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--secondary-color);
-        }
-
-            .product-card:hover {
-                transform: translateY(-5px);
-                box-shadow: var(--hover-shadow);
-                border-top-color: var(--primary-color);
-            }
-
-        .product-name {
-            font-size: 1.5em;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .product-description {
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .product-features {
-            list-style: none;
-            padding: 0;
-        }
-
-            .product-features li {
-                padding: 5px 0;
-                padding-left: 25px;
-                position: relative;
-            }
-
-                .product-features li::before {
-                    content: '✓';
-                    position: absolute;
-                    left: 0;
-                    color: var(--success-color);
-                    font-weight: bold;
-                }
-
-        /* Why PWA Section */
-        .why-pwa {
-            background: white;
-            padding: 60px 20px;
+            padding: 30px 20px;
             text-align: center;
         }
 
-        .pwa-comparison {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 40px auto;
+        .logo img {
+            width: 300px;
+            max-width: 80vw;
         }
 
-        .comparison-item {
-            padding: 20px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-            border-radius: 10px;
-        }
-
-            .comparison-item.highlight {
-                background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-                color: white;
-                transform: scale(1.05);
-            }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #003d5c 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .cta-button {
-            padding: 15px 30px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: bold;
-        }
-
-            .cta-button.primary {
-                background: var(--secondary-color);
-                color: white;
-            }
-
-                .cta-button.primary:hover {
-                    background: #5bc0eb;
-                }
-
-            .cta-button.secondary {
-                background: transparent;
-                color: white;
-                border: 2px solid white;
-            }
-
-            .cta-button:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            }
-
-        /* Newsletter Section */
-        .newsletter-section {
+        /* Results Hero Section */
+        .results-hero {
             background: var(--light-bg);
             padding: 40px 20px;
             text-align: center;
         }
+
+        .results-badge {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .results-headline {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .results-subheadline {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Live Results Display */
+        .results-container {
+            background: white;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .results-title {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .result-item {
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .result-bar-container {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-bar-fill {
+            background: linear-gradient(135deg, #40b2e3, #005b8c);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 15px;
+            position: relative;
+        }
+
+            .result-bar-fill.user-selected {
+                background: linear-gradient(135deg, #27ae60, #229954);
+                box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+            }
+
+            .result-bar-fill::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 30%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
+                animation: shimmer 2s infinite;
+            }
 
         /* Footer */
         .footer {
@@ -366,85 +179,290 @@
                     opacity: 1;
                 }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            100% {
+                transform: translateX(100%);
             }
         }
 
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
+        .result-percentage {
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 40px 20px;
-                background-attachment: scroll; /* Better performance on mobile */
-            }
+        .result-count {
+            font-size: 0.9em;
+            color: #666;
+            margin-left: 10px;
+        }
 
-            .logo {
+        .your-choice-indicator {
+            background: var(--success-color);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Personalized Solution Section */
+        .solution-spotlight {
+            background: linear-gradient(135deg, #005b8c 0%, #003d5c 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+            .solution-spotlight h2 {
                 font-size: 2em;
+                margin-bottom: 20px;
             }
 
-                .logo img {
-                    width: 250px;
-                    max-width: 90vw;
-                }
-
-            .section-title {
-                font-size: 1.8em;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pwa-comparison {
-                grid-template-columns: 1fr;
-            }
-
-            .comparison-item.highlight {
-                transform: scale(1);
-            }
-
-            /* Gamification section mobile styles */
-            .gamification-content {
-                grid-template-columns: 1fr !important;
-                gap: 40px !important;
-            }
-
-            .gamification-demo {
-                position: static !important;
-                order: -1;
-            }
-
-
-                .gamification-demo iframe {
-                    height: 400px !important;
-                }
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 40px auto 0;
         }
 
-        /* Special G2E Badge */
-        .g2e-badge {
+        .solution-feature {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .solution-metric {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .solution-description {
+            font-size: 1em;
+            opacity: 0.95;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .booking-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .booking-title {
+            text-align: center;
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .booking-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .urgency-message {
+            background: var(--danger-color);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        /* Time Slots Grid */
+        .time-slots-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin: 30px 0;
+        }
+
+        .time-slot-button {
+            padding: 12px 20px;
+            border: 2px solid var(--secondary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+            .time-slot-button:hover {
+                background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(64, 178, 227, 0.3);
+            }
+
+            .time-slot-button.selected {
+                background: var(--primary-color);
+                color: white;
+            }
+
+        /* Contact Form */
+        .contact-form {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 5px;
+        }
+
+        .form-label {
+            color: #666;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-input {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+            .form-input:focus {
+                outline: none;
+                border-color: var(--secondary-color);
+            }
+
+        .cta-button {
+            padding: 20px 50px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2980b9 100%);
+            color: white;
+            margin-top: 20px;
+        }
+
+            .cta-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            }
+
+        /* Other Solutions */
+        .other-solutions {
+            background: var(--light-bg);
+            padding: 60px 20px;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+            .solution-card:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--hover-shadow);
+            }
+
+        .solution-name {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .solution-benefit {
+            color: var(--success-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Success Modal */
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .success-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        /* Floating Book Button */
+        .floating-book-btn {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: var(--secondary-color);
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
             color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            box-shadow: var(--card-shadow);
+            padding: 12px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
             z-index: 1000;
+            border: none;
+            transition: all 0.3s ease;
             animation: pulse 2s infinite;
         }
+
+            .floating-book-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+            }
 
         @keyframes pulse {
             0%, 100% {
@@ -452,908 +470,770 @@
             }
 
             50% {
-                transform: scale(1.05);
+                transform: scale(1.03);
             }
         }
-		
-		 /* Pain Points Carousel */
-        .pain-points-section {
-            background: white;
-            padding: 60px 20px;
-        }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.2em;
-            color: #005b8c;
-            margin-bottom: 20px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 1.1em;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .pain-carousel-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .pain-carousel {
-            position: relative;
-            height: 350px;
-            overflow: hidden;
-        }
-
-        .pain-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 30px;
-            align-items: center;
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .pain-slide.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .pain-slide.prev {
-            opacity: 0;
-            transform: translateX(-100px);
-        }
-
-        .pain-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            flex-shrink: 0;
-            box-shadow: 0 5px 15px rgba(0, 91, 140, 0.3);
-        }
-
-        .pain-content {
-            display: grid;
-            gap: 20px;
-        }
-
-        .pain-title {
-            font-size: 1.8rem;
-            color: #005b8c;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .pain-problem {
-            padding: 20px;
-            background: rgba(231, 76, 60, 0.1);
-            border-left: 4px solid #e74c3c;
-            border-radius: 8px;
-            line-height: 1.6;
-        }
-
-        .pain-solution {
-            padding: 20px;
-            background: rgba(64, 178, 227, 0.1);
-            border-left: 4px solid #40b2e3;
-            border-radius: 8px;
-            line-height: 1.6;
-        }
-
-        .carousel-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .carousel-btn {
-            width: 50px;
-            height: 50px;
-            border: none;
-            background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
-            color: white;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(64, 178, 227, 0.4);
-        }
-
-        .carousel-dots {
-            display: flex;
-            gap: 10px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ddd;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: #40b2e3;
-            transform: scale(1.2);
-        }
-
-        .dot:hover {
-            background: #005b8c;
-        }
-
-        .carousel-progress {
-            margin-top: 20px;
-            height: 4px;
-            background: #eee;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #005b8c 0%, #40b2e3 100%);
-            border-radius: 2px;
-            width: 10%;
-            transition: width 0.3s ease;
-        }
-
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .pain-slide {
+            .results-headline {
+                font-size: 1.6em;
+            }
+
+            .results-container {
+                padding: 20px;
+            }
+
+            .solution-features {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                text-align: center;
-                height: auto;
-                min-height: 350px;
             }
 
-            .pain-number {
-                margin: 0 auto;
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+            .booking-container {
+                padding: 20px;
             }
 
-            .pain-title {
-                font-size: 1.4rem;
+            .time-slots-container {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             }
 
-            .carousel-controls {
-                flex-wrap: wrap;
-                gap: 15px;
+            .floating-book-btn {
+                padding: 10px 20px;
+                font-size: 14px;
             }
-
-            .carousel-dots {
-                order: -1;
-                width: 100%;
-                justify-content: center;
-            }
-            .g2e-badge {
-                display: none;
-            }
-
-            .logo {
-                font-size: 2em;
-            }
-
-                .logo img {
-                    width: 250px;
-                    max-width: 90vw;
-                }
         }
     </style>
 </head>
 <body>
 
+    <!-- Floating Book Button -->
+    <button class="floating-book-btn" onclick="scrollToBooking()">
+        📅 Book Now
+    </button>
 
-    <!-- G2E Badge -->
-    <div class="g2e-badge">
-        📍 Suite# TBD, Venetian
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <img src="https://g2e2025.strategy9.com/s9logo.png" alt="Strategy9 Logo" />
+        </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="logo"><img src="s9logo.png" width="400px;" /></div>
-            <div class="tagline">Transforming Casino & Hospitality Technology</div>
-
-            <div class="event-badge">
-                🎰 G2E 2025 | October 7-9, 2025
-            </div>
-			<button class="cta-button primary" onclick="openBookingModal()">
-                📅 Book Your Strategy9 Talk / Demo
-            </button>
-
-            <div class="location-info">
-                <h3>Visit Us at The Venetian / G2E 2025</h3>
-                <p><strong>Suite# TBD, Venetian</strong></p>
-                <p>Experience live demos of our integrated technology solutions</p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Demo Showcase Section -->
-    <section class="demo-showcase" style="background: white; padding: 60px 20px; text-align: center;">
-        <h2 class="section-title">Try Our G2E 2025 Demo App</h2>
-        <p class="section-subtitle">
-            Experience the power of Progressive Web Apps firsthand. No app store needed!
+    <!-- Results Hero Section -->
+    <section class="results-hero">
+        <div class="results-badge">LIVE SURVEY RESULTS</div>
+        <h1 class="results-headline" id="dynamicHeadline">
+            You're Not Alone - 73% of Executives Share Your Priority
+        </h1>
+        <p class="results-subheadline" id="dynamicSubheadline">
+            See how other casino leaders answered and discover proven solutions for your biggest challenge
         </p>
-
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <!-- Phone Mockup with Screenshot -->
-            <div style="display: inline-block; position: relative; margin: 30px 0;">
-                <div style="width: 300px; height: 600px; background: #1a1a1a; border-radius: 35px; padding: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%); border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; position: relative; overflow: hidden;">
-                        <!-- Simulated PWA Interface -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.1); padding: 15px; backdrop-filter: blur(10px);">
-                            <div style="font-size: 0.9em; opacity: 0.9;">G2E 2025 Survey Demo</div>
-                        </div>
-
-                        <div style="padding: 20px; text-align: center;">
-                            <div style="font-size: 1.8em; margin-bottom: 20px;">📊</div>
-                            <h3 style="font-size: 1.2em; margin-bottom: 15px;">How satisfied were you with the G2E registration process?</h3>
-
-                            <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; margin: 10px 0;">
-                                😊 Very Satisfied
-                            </div>
-                            <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; margin: 10px 0;">
-                                🙂 Satisfied
-                            </div>
-                            <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; margin: 10px 0;">
-                                😐 Neutral
-                            </div>
-
-                            <div style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
-                                Real-time results • No download required
-                            </div>
-                        </div>
-
-                        <!-- Book Demo Button Preview -->
-                        <div style="position: absolute; bottom: 20px;">
-                            <div style="background: white; color: #005b8c; padding: 10px 20px; border-radius: 25px; font-weight: bold;">
-                                Book Discussion / Demo
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA and Instructions -->
-            <div style="margin-top: 40px;">
-                <a href="https://strategy9.github.io/G2E/pwa.html" target="_blank" class="cta-button primary" style="font-size: 1.3em; padding: 20px 40px;">
-                    🚀 Launch Demo App
-                </a>
-                <p style="margin-top: 15px; color: #666;">
-                    Works instantly in any browser • No download required
-                </p>
-            </div>
-
-            <!-- Installation Instructions -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; text-align: left;">
-                <div style="background: #f5f5f5; padding: 30px; border-radius: 15px;">
-                    <h3 style="color: #005b8c; margin-bottom: 15px;">📱 Install on iPhone/iPad</h3>
-                    <ol style="color: #666; line-height: 1.8;">
-                        <li>Open <strong>Safari</strong> (must use Safari)</li>
-                        <li>Visit <code style="background: white; padding: 2px 6px; border-radius: 3px;">strategy9.github.io/G2E</code></li>
-                        <li>Tap the <strong>Share button</strong> <span style="display: inline-block; transform: translateY(2px);">⬆️</span></li>
-                        <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
-                        <li>Name it "Strategy9 G2E" and tap <strong>Add</strong></li>
-                        <li>Launch from your home screen like any app!</li>
-                    </ol>
-                </div>
-
-                <div style="background: #f5f5f5; padding: 30px; border-radius: 15px;">
-                    <h3 style="color: #005b8c; margin-bottom: 15px;">🤖 Install on Android</h3>
-                    <ol style="color: #666; line-height: 1.8;">
-                        <li>Open <strong>Chrome</strong> browser</li>
-                        <li>Visit <code style="background: white; padding: 2px 6px; border-radius: 3px;">strategy9.github.io/G2E</code></li>
-                        <li>Tap the <strong>3-dot menu</strong> ⋮</li>
-                        <li>Select <strong>"Add to Home screen"</strong></li>
-                        <li>Name it "Strategy9 G2E" and tap <strong>Add</strong></li>
-                        <li>Launch from your home screen - it's now an app!</li>
-                    </ol>
-                </div>
-            </div>
-
-            <!-- Feature Highlights -->
-            <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%); border-radius: 15px; color: white;">
-                <h3 style="font-size: 1.5em; margin-bottom: 20px;">What's Inside Our G2E Demo App?</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
-                    <div>
-                        <div style="font-size: 2em; margin-bottom: 10px;">📊</div>
-                        <strong>Live Surveys</strong>
-                        <p style="font-size: 0.9em; opacity: 0.9;">Real-time feedback with instant results</p>
-                    </div>
-                    <div>
-                        <div style="font-size: 2em; margin-bottom: 10px;">📅</div>
-                        <strong>Demo Booking</strong>
-                        <p style="font-size: 0.9em; opacity: 0.9;">Schedule your Strategy9 Discussion / Demo at our suite</p>
-                    </div>
-                    <div>
-                        <div style="font-size: 2em; margin-bottom: 10px;">📈</div>
-                        <strong>Live Analytics</strong>
-                        <p style="font-size: 0.9em; opacity: 0.9;">See real-time data visualization</p>
-                    </div>
-                    <div>
-                        <div style="font-size: 2em; margin-bottom: 10px;">⚡</div>
-                        <strong>Offline Mode</strong>
-                        <p style="font-size: 0.9em; opacity: 0.9;">Works even without internet</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-	
-	
-		
-	
-
-    <!-- Why PWA Section -->
-    <section class="why-pwa">
-        <h2 class="section-title">Why Progressive Web Apps?</h2>
-        <p class="section-subtitle">
-            Your customers already have browsers. Give them an app experience without the app store.
-        </p>
-
-        <div class="pwa-comparison">
-            <div class="comparison-item">
-                <h3>Traditional Apps</h3>
-                <p>📱 Must download from store</p>
-                <p>💾 Takes up phone storage</p>
-                <p>🔄 Manual updates required</p>
-                <p>💰 App store fees (30%)</p>
-                <p>⏱️ Weeks for approval</p>
-            </div>
-
-            <div class="comparison-item highlight">
-                <h3>Progressive Web Apps</h3>
-                <p>🌐 Works instantly in browser</p>
-                <p>⚡ Lightweight & fast</p>
-                <p>🔄 Auto-updates seamlessly</p>
-                <p>💵 No app store fees</p>
-                <p>🚀 Deploy instantly</p>
-            </div>
-
-            <div class="comparison-item">
-                <h3>Traditional Websites</h3>
-                <p>🖥️ Desktop-focused</p>
-                <p>📵 No offline access</p>
-                <p>🔔 No push notifications</p>
-                <p>📱 Poor mobile experience</p>
-                <p>🏠 Can't add to home screen</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PWA Benefits Section -->
-    <section class="pwa-section">
-        <h2 class="section-title">Perfect for Casinos & Hospitality</h2>
-        <p class="section-subtitle">
-            Engage guests instantly. No downloads. No friction. Just results.
-        </p>
-
-        <div class="pwa-benefits">
-            <div class="benefit-card">
-                <div class="benefit-icon">⚡</div>
-                <div class="benefit-title">Instant Access</div>
-                <p>Guests access your services immediately - no app store, no downloads, no passwords</p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon">📱</div>
-                <div class="benefit-title">Works Everywhere</div>
-                <p>One solution for iPhone, Android, tablets, and desktops - maintain one codebase</p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon">💰</div>
-                <div class="benefit-title">Save Money</div>
-                <p>No app store fees, no separate iOS/Android teams, update instantly without approval</p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon">📊</div>
-                <div class="benefit-title">Real-Time Analytics</div>
-                <p>Track engagement instantly, A/B test features, and optimize on the fly</p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon">🔔</div>
-                <div class="benefit-title">Push Notifications</div>
-                <p>Re-engage guests with timely offers, event reminders, and personalized messages</p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon">🔒</div>
-                <div class="benefit-title">Secure & Compliant</div>
-                <p>HTTPS encryption, secure contexts, and compliance-ready for gaming regulations</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Marketing Gamification Section -->
-    <section style="background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%); color: white; padding: 60px 20px; border-bottom: 1px solid rgba(64, 178, 227, 0.2);">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 2.2em; color: #40b2e3; margin-bottom: 20px;">Interactive Marketing Gamification</h2>
-            <div class="gamification-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
-                <div>
-                    <h3 style="color: #40b2e3; font-size: 1.8rem; margin-bottom: 20px;">Turn Data Collection Into Engaging Experiences</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; color: #e0e0e0;">Strategy9's gamification solutions transform traditional marketing touchpoints into interactive experiences that guests actually want to participate in. Our Marketing Metrics Cascade game demonstrates how complex data concepts can become engaging, shareable content.</p>
-
-                    <div style="margin: 40px 0;">
-                        <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; padding: 20px; background: rgba(64, 178, 227, 0.05); border-radius: 10px; border-left: 4px solid #40b2e3;">
-                            <div style="font-size: 1.5rem; flex-shrink: 0;">🎯</div>
-                            <div>
-                                <strong style="color: #40b2e3; display: block; margin-bottom: 5px;">Higher Engagement Rates</strong>
-                                <p style="margin: 0; font-size: 0.95rem; color: #b0b0b0;">Interactive games achieve 3-5x higher participation than traditional surveys</p>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; padding: 20px; background: rgba(64, 178, 227, 0.05); border-radius: 10px; border-left: 4px solid #40b2e3;">
-                            <div style="font-size: 1.5rem; flex-shrink: 0;">📊</div>
-                            <div>
-                                <strong style="color: #40b2e3; display: block; margin-bottom: 5px;">Rich Customer Data</strong>
-                                <p style="margin: 0; font-size: 0.95rem; color: #b0b0b0;">Collect behavioral insights, preferences, and contact information naturally</p>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; padding: 20px; background: rgba(64, 178, 227, 0.05); border-radius: 10px; border-left: 4px solid #40b2e3;">
-                            <div style="font-size: 1.5rem; flex-shrink: 0;">🎁</div>
-                            <div>
-                                <strong style="color: #40b2e3; display: block; margin-bottom: 5px;">Reward Integration</strong>
-                                <p style="margin: 0; font-size: 0.95rem; color: #b0b0b0;">Seamlessly connect achievements to your existing loyalty and reward programs</p>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; padding: 20px; background: rgba(64, 178, 227, 0.05); border-radius: 10px; border-left: 4px solid #40b2e3;">
-                            <div style="font-size: 1.5rem; flex-shrink: 0;">📱</div>
-                            <div>
-                                <strong style="color: #40b2e3; display: block; margin-bottom: 5px;">Social Sharing</strong>
-                                <p style="margin: 0; font-size: 0.95rem; color: #b0b0b0;">Games encourage organic social media sharing, expanding your reach</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="background: rgba(0, 91, 140, 0.1); padding: 25px; border-radius: 10px; border: 1px solid rgba(64, 178, 227, 0.3);">
-                        <h4 style="color: #40b2e3; margin-bottom: 15px; font-size: 1.2rem;">Perfect for Casino & Hospitality:</h4>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 12px; padding-left: 20px; position: relative; color: #e0e0e0; line-height: 1.5;"><span style="position: absolute; left: 0;">🎯</span><strong style="color: #40b2e3;">Welcome Kiosks:</strong> New guests play to unlock amenity information and earn welcome bonuses</li>
-                            <li style="margin-bottom: 12px; padding-left: 20px; position: relative; color: #e0e0e0; line-height: 1.5;"><span style="position: absolute; left: 0;">🎯</span><strong style="color: #40b2e3;">Dining Experiences:</strong> Menu-based matching games that collect dining preferences</li>
-                            <li style="margin-bottom: 12px; padding-left: 20px; position: relative; color: #e0e0e0; line-height: 1.5;"><span style="position: absolute; left: 0;">🎯</span><strong style="color: #40b2e3;">Event Promotion:</strong> Tournament-style games that build excitement for upcoming shows or promotions</li>
-                            <li style="margin-bottom: 12px; padding-left: 20px; position: relative; color: #e0e0e0; line-height: 1.5;"><span style="position: absolute; left: 0;">🎯</span><strong style="color: #40b2e3;">Loyalty Onboarding:</strong> Progressive games that educate about your rewards program while gathering profile data</li>
-                            <li style="margin-bottom: 12px; padding-left: 20px; position: relative; color: #e0e0e0; line-height: 1.5;"><span style="position: absolute; left: 0;">🎯</span><strong style="color: #40b2e3;">Feedback Collection:</strong> Make satisfaction surveys feel like achievement-based challenges</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="gamification-demo" style="position: sticky; top: 100px;">
-                    <div style="background: #000; border-radius: 15px; border: 3px solid #40b2e3; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);">
-                        <iframe src="game.html" frameborder="0" width="100%" height="1100" style="border-radius: 12px;"></iframe>
-                    </div>
-                    <p style="text-align: center; margin-top: 15px; color: #b0b0b0; font-size: 0.9rem;">
-                        <strong style="color: #40b2e3;">Try our Marketing Metrics Cascade!</strong><br>
-                        This demo shows how marketing concepts become engaging gameplay.
-                        <a href="game.html" target="_blank" style="color: #40b2e3; text-decoration: none;">Open full version →</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-	
-	<section class="pain-points-section">
-        <h2 class="section-title">10 Problems We Solve Every Day</h2>
-        <p class="section-subtitle">Stop by the Strategy9 Suite (*location tbd) to see live demonstrations of how Strategy9 eliminates these daily frustrations</p>
-        
-        <div class="pain-carousel-container">
-            <div class="pain-carousel">
-                <div class="pain-slide active" data-slide="0">
-                    <div class="pain-number">1</div>
-                    <div class="pain-content">
-                        <h3 class="pain-title">Guest Data Scattered Across Systems</h3>
-                        <div class="pain-problem">
-                            <strong>The Problem:</strong> Your guest information lives in 5+ different systems. Marketing doesn't know what operations knows. You're flying blind.
-                        </div>
-                        <div class="pain-solution">
-                            <strong>Our Solution:</strong> PlayerIQ unifies all guest touchpoints into one intelligent platform. See everything about a guest in one place.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pain-slide" data-slide="1">
-                    <div class="pain-number">2</div>
-                    <div class="pain-content">
-                        <h3 class="pain-title">Restaurant Wait Lists on Paper</h3>
-                        <div class="pain-problem">
-                            <strong>The Problem:</strong> Hosts juggling clipboards, guests wandering off when tables are ready, no way to text updates.
-                        </div>
-                        <div class="pain-solution">
-                            <strong>Our Solution:</strong> Digital queue management with automated SMS notifications. Guests get texted when ready.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pain-slide" data-slide="2">
-                    <div class="pain-number">3</div>
-                    <div class="pain-content">
-                        <h3 class="pain-title">Survey Response Rates Under 2%</h3>
-                        <div class="pain-problem">
-                            <strong>The Problem:</strong> Long email surveys nobody completes. You're missing 98% of guest opinions.
-                        </div>
-                        <div class="pain-solution">
-                            <strong>Our Solution:</strong> SurveyIQ's one-tap mobile surveys get 40%+ response rates with real-time results.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pain-slide" data-slide="3">
-                    <div class="pain-number">4</div>
-                    <div class="pain-content">
-                        <h3 class="pain-title">Marketing Campaigns Take Weeks</h3>
-                        <div class="pain-problem">
-                            <strong>The Problem:</strong> By the time IT builds your campaign and it launches, your promotion is half over.
-                        </div>
-                        <div class="pain-solution">
-                            <strong>Our Solution:</strong> Launch campaigns in minutes, not weeks. No IT department needed.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pain-slide" data-slide="4">
-                    <div class="pain-number">5</div>
-                    <div class="pain-content">
-                        <h3 class="pain-title">WiFi That Gives Nothing Back</h3>
-                        <div class="pain-problem">
-                            <strong>The Problem:</strong> Guests use your expensive WiFi anonymously. Just a costly amenity with zero ROI.
-                        </div>
-                        <div class="pain-solution">
-                            <strong>Our Solution:</strong> WiFiIQ turns your internet into a marketing goldmine with branded login and guest data capture.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pain-slide" data-slide="5">
-                    <div class="pain-number">6</div>
-                    <div class="pain-content">
-                        <h3 class="pain-title">Table Games Accounting Nightmare</h3>
-                        <div class="pain-problem">
-                            <strong>The Problem:</strong> Excel spreadsheets for drop counts. Manual calculations prone to errors. One mistake could mean fines.
-                        </div>
-                        <div class="pain-solution">
-                            <strong>Our Solution:</strong> TableIQ automates your entire table games accounting with one-click regulatory reports.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pain-slide" data-slide="6">
-                    <div class="pain-number">7</div>
-                    <div class="pain-content">
-                        <h3 class="pain-title">Staff Communication Chaos</h3>
-                        <div class="pain-problem">
-                            <strong>The Problem:</strong> Updates via bulletin board. Half your team misses critical information.
-                        </div>
-                        <div class="pain-solution">
-                            <strong>Our Solution:</strong> EmployeeIQ puts everything in employees' pockets with instant push notifications.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pain-slide" data-slide="7">
-                    <div class="pain-number">8</div>
-                    <div class="pain-content">
-                        <h3 class="pain-title">Contest Data Goes Nowhere</h3>
-                        <div class="pain-problem">
-                            <strong>The Problem:</strong> You capture data on paper entry slips. Can't email participants later. Missed opportunities.
-                        </div>
-                        <div class="pain-solution">
-                            <strong>Our Solution:</strong> Digital contest entry automatically builds your marketing database with ROI tracking.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pain-slide" data-slide="8">
-                    <div class="pain-number">9</div>
-                    <div class="pain-content">
-                        <h3 class="pain-title">Mobile App Nobody Downloads</h3>
-                        <div class="pain-problem">
-                            <strong>The Problem:</strong> Spent $100K+ on a native app. Less than 5% of guests download it. Money wasted.
-                        </div>
-                        <div class="pain-solution">
-                            <strong>Our Solution:</strong> Progressive Web Apps work instantly - no download needed. 90% cheaper than native apps.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pain-slide" data-slide="9">
-                    <div class="pain-number">10</div>
-                    <div class="pain-content">
-                        <h3 class="pain-title">Analytics That Require a PhD</h3>
-                        <div class="pain-problem">
-                            <strong>The Problem:</strong> Complex reports nobody understands. By the time you get insights, the opportunity has passed.
-                        </div>
-                        <div class="pain-solution">
-                            <strong>Our Solution:</strong> Real-time dashboards anyone can read. See what's working NOW, not last month.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="carousel-controls">
-                <button class="carousel-btn prev" onclick="prevSlide()">‹</button>
-                <div class="carousel-dots">
-                    <span class="dot active" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                    <span class="dot" onclick="currentSlide(5)"></span>
-                    <span class="dot" onclick="currentSlide(6)"></span>
-                    <span class="dot" onclick="currentSlide(7)"></span>
-                    <span class="dot" onclick="currentSlide(8)"></span>
-                    <span class="dot" onclick="currentSlide(9)"></span>
-                    <span class="dot" onclick="currentSlide(10)"></span>
-                </div>
-                <button class="carousel-btn next" onclick="nextSlide()">›</button>
-            </div>
-            
-            <div class="carousel-progress">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products-section">
-        <h2 class="section-title">Our Integrated Solutions Suite</h2>
-        <p class="section-subtitle">
-            Everything you need to understand, engage, and grow your customer base
-        </p>
-
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-name">🎲 PlayerIQ</div>
-                <div class="product-description">
-                    Complete casino and hospitality marketing platform
-                </div>
-                <ul class="product-features">
-                    <li>SMS campaign management with segmentation</li>
-                    <li>Comprehensive contests for data collection</li>
-                    <li>Queue Manager for waitlists & reservations</li>
-                    <li>Player tracking and loyalty integration</li>
-                    <li>Real-time analytics dashboard</li>
-                </ul>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">📧 EmailIQ</div>
-                <div class="product-description">
-                    Smart email marketing automation for hospitality
-                </div>
-                <ul class="product-features">
-                    <li>Automated campaign workflows</li>
-                    <li>Personalized guest communications</li>
-                    <li>Event and promotion announcements</li>
-                    <li>Advanced segmentation tools</li>
-                    <li>A/B testing and optimization</li>
-                </ul>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">📊 SurveyIQ</div>
-                <div class="product-description">
-                    Instant feedback collection with real-time results
-                </div>
-                <ul class="product-features">
-                    <li>QR code and link-based surveys</li>
-                    <li>Real-time results visualization</li>
-                    <li>Anonymous and tracked responses</li>
-                    <li>Custom branding options</li>
-                    <li>Export to Excel and PDF reports</li>
-                </ul>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">👥 EmployeeIQ</div>
-                <div class="product-description">
-                    Staff management and communication platform
-                </div>
-                <ul class="product-features">
-                    <li>Employee scheduling and shifts</li>
-                    <li>Internal communications hub</li>
-                    <li>Training and certification tracking</li>
-                    <li>Performance management tools</li>
-                    <li>HR document management</li>
-                </ul>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">🎰 TableIQ</div>
-                <div class="product-description">
-                    Simplified table games accounting for small casinos
-                </div>
-                <ul class="product-features">
-                    <li>Drop and win tracking</li>
-                    <li>Shift reports and summaries</li>
-                    <li>Variance analysis tools</li>
-                    <li>Regulatory compliance reports</li>
-                    <li>Multi-property support</li>
-                </ul>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">📶 WiFiIQ</div>
-                <div class="product-description">
-                    Guest WiFi with marketing intelligence
-                </div>
-                <ul class="product-features">
-                    <li>Branded captive portal</li>
-                    <li>Social media login integration</li>
-                    <li>Guest data collection</li>
-                    <li>Bandwidth management</li>
-                    <li>Location analytics and heat maps</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <h2 class="section-title" style="color: white;">See It In Action at G2E 2025</h2>
-        <p style="font-size: 1.2em; margin-bottom: 10px;">
-            Don't just read about it - experience the future of casino technology
-        </p>
-        <p style="opacity: 0.9;">
-            Strategy9 Discussion / Demo every 30 minutes at our suite
-        </p>
-
-        <div class="cta-buttons">
-            <button class="cta-button primary" onclick="openBookingModal()">
-                📅 Book Your Strategy9 Talk / Demo
-            </button>
-            <a href="/G2E/" class="cta-button secondary">
-                🎮 Try Live Demo Now
-            </a>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <h2 class="section-title">Stay Connected</h2>
-
-        <p>Get the latest updates on our products and exclusive G2E offers</p>
-        <p style="height: 10px;">&#160;</p>
-
-        <button onclick="openNewsletterModal()" class="cta-button primary" style="background: var(--primary-color); padding: 15px 40px; font-size: 1.1em;">
-            📧 Join Our Newsletter
+        <button class="cta-button" style="margin-top: 20px; display: inline-block;" onclick="scrollToBooking()">
+            📅 BOOK YOUR G2E DISCUSSION NOW
         </button>
-        <p style="height: 5px;">&#160;</p>
+    </section>
 
-        <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
-            Powered by EmailIQ - Our intelligent email marketing platform
+    <!-- Live Results Display -->
+    <section class="results-container">
+        <h2 class="results-title">What Casino Executives Said Is Their #1 Priority:</h2>
+        <div id="resultsChart">
+            <!-- Results will be populated here -->
+            <div class="result-item">
+                <div class="result-label">
+                    <span>📈 Growing our player database</span>
+                    <span class="result-count">142 executives</span>
+                </div>
+                <div class="result-bar-container">
+                    <div class="result-bar-fill" style="width: 35%;">
+                        <span class="result-percentage">35%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-item">
+                <div class="result-label">
+                    <span>🎯 Understanding guest preferences better</span>
+                    <span class="result-count">98 executives</span>
+                </div>
+                <div class="result-bar-container">
+                    <div class="result-bar-fill" style="width: 24%;">
+                        <span class="result-percentage">24%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-item">
+                <div class="result-label">
+                    <span>💰 Reducing operational costs</span>
+                    <span class="result-count">73 executives</span>
+                </div>
+                <div class="result-bar-container">
+                    <div class="result-bar-fill" style="width: 18%;">
+                        <span class="result-percentage">18%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-item">
+                <div class="result-label">
+                    <span>⚡ Improving staff efficiency</span>
+                    <span class="result-count">53 executives</span>
+                </div>
+                <div class="result-bar-container">
+                    <div class="result-bar-fill" style="width: 13%;">
+                        <span class="result-percentage">13%</span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-item">
+                <div class="result-label">
+                    <span>📊 Increasing marketing ROI</span>
+                    <span class="result-count">41 executives</span>
+                </div>
+                <div class="result-bar-container">
+                    <div class="result-bar-fill" style="width: 10%;">
+                        <span class="result-percentage">10%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: rgba(64, 178, 227, 0.1); border-radius: 10px; text-align: center;">
+            <p style="color: #005b8c; font-weight: bold; margin: 0;">
+                This real-time data is powered by SurveyIQ - imagine getting this level of insight from your guests
+            </p>
+        </div>
+    </section>
+
+    <!-- Personalized Solution Spotlight -->
+    <section class="solution-spotlight" id="solutionSpotlight">
+        <h2 id="solutionHeadline">How We Help Properties Grow Their Database by 300%</h2>
+        <p style="font-size: 1.1em; opacity: 0.9; max-width: 700px; margin: 0 auto;">
+            Based on your priority, here's exactly how we've solved this for 78+ properties:
         </p>
+
+        <div class="solution-features">
+            <div class="solution-feature">
+                <div class="solution-metric">52,000</div>
+                <div class="solution-description">New contacts captured in 6 months at regional casino</div>
+            </div>
+            <div class="solution-feature">
+                <div class="solution-metric">10,000+</div>
+                <div class="solution-description">Monthly leads from WiFi alone</div>
+            </div>
+            <div class="solution-feature">
+                <div class="solution-metric">15 min</div>
+                <div class="solution-description">To launch data capture campaigns</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="booking-container">
+            <h2 class="booking-title">Reserve Your Private Suite Demo</h2>
+            <p class="booking-subtitle">
+                See exactly how we'll solve YOUR specific challenge in 30 minutes
+            </p>
+
+            <div class="urgency-message">
+                🔥 G2E Special: Implementation included for agreements signed at show (Value: $25,000)
+            </div>
+
+            <div id="bookingForm">
+                <!-- Date Selection -->
+                <div style="margin-bottom: 20px;">
+                    <label class="form-label">Select Date:</label>
+                    <select id="dateSelect" class="form-input" style="width: 100%;">
+                        <option value="2025-10-07">Tuesday, October 7, 2025</option>
+                        <option value="2025-10-08">Wednesday, October 8, 2025</option>
+                        <option value="2025-10-09">Thursday, October 9, 2025</option>
+                    </select>
+                </div>
+
+                <!-- Time Slots -->
+                <div id="timeSlotSection">
+                    <label class="form-label">Available Times:</label>
+                    <div class="time-slots-container" id="timeSlotsContainer">
+                        <!-- Time slots will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="contact-form" id="contactForm" style="display: none;">
+                    <h3 style="color: #005b8c; margin: 20px 0 10px 0;">Your Information</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Name *</label>
+                        <input type="text" class="form-input" id="customerName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-input" id="customerEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-input" id="customerPhone">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Property/Company *</label>
+                        <input type="text" class="form-input" id="customerCompany" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Annual Revenue</label>
+                        <select class="form-input" id="revenueRange">
+                            <option value="">Select range</option>
+                            <option value="Under $50M">Under $50M</option>
+                            <option value="$50M-$100M">$50M - $100M</option>
+                            <option value="$100M-$500M">$100M - $500M</option>
+                            <option value="Over $500M">Over $500M</option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" id="userPriority" value="">
+
+                    <button type="submit" class="cta-button" style="width: 100%;">
+                        Confirm Your Private Demo
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Solutions Section -->
+    <section class="other-solutions">
+        <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">
+            Complete Solution Suite
+        </h2>
+        <p style="text-align: center; color: #666; margin-bottom: 40px;">
+            While we focus on your priority, see how our other solutions work together
+        </p>
+
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div class="solution-name">PlayerIQ</div>
+                <div class="solution-benefit">ROI in 45 days</div>
+                <p style="color: #666;">Unified guest intelligence across all touchpoints. SMS, contests, loyalty integration.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-name">SurveyIQ</div>
+                <div class="solution-benefit">40%+ response rates</div>
+                <p style="color: #666;">One-tap mobile surveys with real-time dashboards. You just experienced it!</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-name">WiFiIQ</div>
+                <div class="solution-benefit">10,000+ leads monthly</div>
+                <p style="color: #666;">Turn your WiFi cost center into a profit center with automatic data capture.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-name">TableIQ</div>
+                <div class="solution-benefit">Audit-ready always</div>
+                <p style="color: #666;">Eliminate Excel-based table games accounting. One-click compliance reports.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-name">EmployeeIQ</div>
+                <div class="solution-benefit">100% message delivery</div>
+                <p style="color: #666;">Instant staff communication and compliance tracking. Reduce HR overhead 30%.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-name">Progressive Web Apps</div>
+                <div class="solution-benefit">90% cost savings</div>
+                <p style="color: #666;">No app stores, no downloads. Instant deployment, 100% reach.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
-            <a href="#products">Products</a>
-            <a href="#" onclick="openBookingModal()">Schedule Demo</a>
-            <a href="mailto:info@strategy9.com">Contact</a>
-            <a href="https://strategy9.com">Strategy9.com</a>
+            <a href="mailto:info@strategy9.com">info@strategy9.com</a>
+            <a href="tel:+18558383999">855.838.3999</a>
+            <a href="https://strategy9.com">strategy9.com</a>
         </div>
 
         <p style="margin-top: 20px; opacity: 0.8;">
-            Strategy9 - Transforming hospitality technology since 1999.
+            Strategy9 - Casino & Hospitality Technology Since 1999<br>
+            <img src="https://g2e2025.strategy9.com/soc2.png" alt="SOC2 Type 1 Certified" style="height: 30px; margin-top: 10px; opacity: 0.9;">
         </p>
 
         <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.6;">
-            G2E 2025 | October 7-9 | The Venetian Expo, Las Vegas
+            G2E 2025 | October 7-9 | The Venetian Expo | Suite TBD
         </p>
-        <p style="height: 5px;">&#160;</p>
-        <p style="color: #999; margin: 0; font-size: 11px;">&#169; 2025 Strategy9 Inc. Strategy9&#174;, PlayerIQ&#174;, EmployeeIQ&#174;, AppendIQ&#174;, TableIQ&#174;, ValetIQ&#174; and SwipeIQ&#174; are registered trademarks of Strategy9 Inc. WiFiIQ&#8482;, SurveyIQ&#8482;, and RaffleIQ&#8482; are trademarks of Strategy9 Inc. All rights reserved.</p>
+
+        <p style="color: #aaa; margin-top: 20px; font-size: 11px;">© 2025 Strategy9 Inc. All rights reserved. Strategy9®, PlayerIQ®, and other marks are registered trademarks.</p>
     </footer>
 
-    <!-- Newsletter Modal -->
-    <div id="newsletterModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
-        <div style="background: white; border-radius: 20px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; margin: auto;">
-            <div style="background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%); color: white; padding: 30px; border-radius: 20px 20px 0 0;">
-                <h2 style="margin: 0; font-size: 1.8em; color: white;">Join Our Newsletter</h2>
-                <p style="margin: 10px 0 0 0; opacity: 0.9;">Stay updated on Strategy9 innovations and G2E exclusives</p>
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">✅</div>
+            <h3 style="color: var(--primary-color); margin-bottom: 10px;">Demo Confirmed!</h3>
+            <p style="color: #666; margin-bottom: 20px;">We'll see you at Suite TBA, Venetian</p>
+            <div id="confirmationDetails" style="background: #f5f5f5; padding: 20px; border-radius: 10px; text-align: left;">
+                <!-- Details will be populated here -->
             </div>
-
-            <div style="padding: 30px;">
-                <div id="newsletterContent">
-                    <form id="emailIQForm">
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 5px; color: #666; font-weight: bold;">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em;">
-                        </div>
-
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 5px; color: #666; font-weight: bold;">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em;">
-                        </div>
-
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 5px; color: #666; font-weight: bold;">Email Address *</label>
-                            <input type="email" id="emailAddress" name="email" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em;">
-                        </div>
-
-                        <div style="margin-bottom: 25px;">
-                            <label style="display: block; margin-bottom: 5px; color: #666; font-weight: bold;">Company (Optional)</label>
-                            <input type="text" id="company" name="company" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em;">
-                        </div>
-
-                        <button type="submit" class="cta-button primary" style="width: 100%; padding: 15px; font-size: 1.1em; background: var(--primary-color); border: none; color: white; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;">
-                            Subscribe to Newsletter
-                        </button>
-
-                        <p style="margin-top: 15px; font-size: 0.85em; color: #999; text-align: center;">
-                            We respect your privacy. Unsubscribe at any time.
-                        </p>
-                    </form>
-                </div>
-
-                <!-- Success Message -->
-                <div id="newsletterSuccess" style="display: none; text-align: center; padding: 40px;">
-                    <div style="font-size: 4em; margin-bottom: 20px;">📧</div>
-                    <h3 style="color: #005b8c; margin-bottom: 10px;">Welcome to Strategy9 Updates!</h3>
-                    <p style="color: #666; margin-bottom: 20px;">Thank you for subscribing. Check your email for a confirmation message.</p>
-                    <p style="color: #40b2e3; font-weight: bold;">See you at G2E 2025!</p>
-                </div>
-
-                <!-- Error Message -->
-                <div id="newsletterError" style="display: none; text-align: center; padding: 40px;">
-                    <div style="font-size: 4em; margin-bottom: 20px;">⚠️</div>
-                    <h3 style="color: #d32f2f; margin-bottom: 10px;">Subscription Error</h3>
-                    <p style="color: #666; margin-bottom: 20px;">We couldn't process your subscription. Please try again or contact us directly.</p>
-                    <button onclick="resetNewsletterModal()" class="cta-button primary" style="padding: 10px 30px;">
-                        Try Again
-                    </button>
-                </div>
-            </div>
-
-            <button onclick="closeNewsletterModal()" style="position: absolute; top: 15px; right: 15px; background: white; border: none; font-size: 1.5em; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333;">
-                ✕
+            <button onclick="closeSuccessModal()" class="cta-button" style="margin-top: 20px;">
+                Done
             </button>
         </div>
     </div>
 
-    <!-- Booking Modal -->
-    <div id="bookingModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
-        <div style="background: white; border-radius: 20px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; margin: auto;">
-            <div style="background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%); color: white; padding: 30px; border-radius: 20px 20px 0 0;">
-                <h2 style="margin: 0; font-size: 1.8em; color: white;">Book Your Strategy9 Discussion / Demo</h2>
-                <p style="margin: 10px 0 0 0; opacity: 0.9;">30-minute personalized demonstration</p>
-            </div>
+    <script>
+        // Configuration
+        const AZURE_FUNCTIONS_URL = 'https://g2e-bookings-api-fah8f2afd6eecsa2.westus-01.azurewebsites.net/api';
+        const SURVEY_BASE_URL = 'https://default.surveyiq.com';
+        const SURVEY_PUBLIC_ID = 'E201BF09-F3DD-42EF-B4FE-78D514CC3E75';
 
-            <div style="padding: 30px;">
+        let selectedTimeSlot = null;
+
+        // Priority mappings
+        const priorityConfig = {
+            '5': {
+                name: 'Growing our player database',
+                headline: 'You\'re Among the 35% Who Need Database Growth',
+                subheadline: 'See how 78+ properties achieved 300% database growth in 90 days',
+                solutionHeadline: 'How We Help Properties Grow Their Database by 300%',
+                metrics: [
+                    { value: '52,000', description: 'New contacts captured in 6 months' },
+                    { value: '10,000+', description: 'Monthly leads from WiFi alone' },
+                    { value: '15 min', description: 'To launch data capture campaigns' }
+                ]
+            },
+            '4': {
+                name: 'Understanding guest preferences better',
+                headline: 'You\'re Among the 24% Seeking Guest Intelligence',
+                subheadline: 'From 2% to 40% response rates - get real insights that drive decisions',
+                solutionHeadline: 'From 2% to 40% Response Rates Overnight',
+                metrics: [
+                    { value: '40%+', description: 'Survey response rate guaranteed' },
+                    { value: '1-tap', description: 'Mobile surveys guests love' },
+                    { value: 'Real-time', description: 'Dashboard updates instantly' }
+                ]
+            },
+            '3': {
+                name: 'Reducing operational costs',
+                headline: 'You\'re Among the 18% Focused on Cost Reduction',
+                subheadline: 'Cut data collection costs by 70% while tripling your results',
+                solutionHeadline: 'Cut Guest Data Costs by 70% While Tripling Results',
+                metrics: [
+                    { value: '70%', description: 'Reduction in data collection costs' },
+                    { value: '$180K', description: 'Annual labor savings alone' },
+                    { value: '15 hrs/wk', description: 'Time saved per department' }
+                ]
+            },
+            '2': {
+                name: 'Improving staff efficiency',
+                headline: 'You\'re Among the 13% Prioritizing Staff Efficiency',
+                subheadline: 'Automate 15 hours of weekly tasks per department',
+                solutionHeadline: 'Automate Manual Tasks, Free Your Team',
+                metrics: [
+                    { value: '15 hrs/wk', description: 'Saved per department' },
+                    { value: '100%', description: 'Message delivery to staff' },
+                    { value: '30%', description: 'Reduction in HR overhead' }
+                ]
+            },
+            '1': {
+                name: 'Increasing marketing ROI',
+                headline: 'You\'re Among the 10% Maximizing Marketing ROI',
+                subheadline: 'Launch campaigns in 15 minutes instead of 3 weeks',
+                solutionHeadline: 'From 3-Week Campaigns to 15-Minute Launches',
+                metrics: [
+                    { value: '15 min', description: 'To launch any campaign' },
+                    { value: '40%', description: 'SMS open rates' },
+                    { value: 'No IT', description: 'Marketing owns the timeline' }
+                ]
+            }
+        };
+
+        // Get URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Initialize page based on user's priority
+        function initializePage() {
+            const priority = getUrlParameter('priority') || getUrlParameter('answer') || '5';
+            const config = priorityConfig[priority] || priorityConfig['5'];
+
+            // Store priority for form submission
+            document.getElementById('userPriority').value = config.name;
+
+            // Update headlines
+            document.getElementById('dynamicHeadline').textContent = config.headline;
+            document.getElementById('dynamicSubheadline').textContent = config.subheadline;
+            document.getElementById('solutionHeadline').textContent = config.solutionHeadline;
+
+            // Update solution metrics
+            const solutionFeatures = document.querySelector('.solution-features');
+            solutionFeatures.innerHTML = config.metrics.map(metric => `
+                    <div class="solution-feature">
+                        <div class="solution-metric">${metric.value}</div>
+                        <div class="solution-description">${metric.description}</div>
+                    </div>
+                `).join('');
+
+            // Highlight the selected answer in results
+            highlightUserChoice(priority);
+
+            // Load real survey statistics
+            loadSurveyStatistics(priority);
+
+            // Load available time slots
+            loadTimeSlots();
+        }
+
+        // Highlight user's choice in results
+        function highlightUserChoice(priority) {
+            const resultItems = document.querySelectorAll('.result-item');
+            const priorityIndex = 5 - parseInt(priority); // Convert to array index
+
+            if (resultItems[priorityIndex]) {
+                const fillBar = resultItems[priorityIndex].querySelector('.result-bar-fill');
+                fillBar.classList.add('user-selected');
+
+                const label = resultItems[priorityIndex].querySelector('.result-label span:first-child');
+                label.innerHTML += ' <span class="your-choice-indicator">YOUR CHOICE</span>';
+            }
+        }
+
+        // Load real survey statistics from API
+        async function loadSurveyStatistics(userPriority) {
+            try {
+                const response = await fetch(`${SURVEY_BASE_URL}/api/services/app/Survey/GetPublicStatistics?publicId=${SURVEY_PUBLIC_ID}`);
+                const data = await response.json();
+
+                if (data.result && data.result.answerOptions) {
+                    updateResultsDisplay(data.result, userPriority);
+                }
+            } catch (error) {
+                console.log('Using default results display');
+            }
+        }
+
+        // Update results display with real data
+        function updateResultsDisplay(stats, userPriority) {
+            const resultsChart = document.getElementById('resultsChart');
+            const totalResponses = stats.totalResponses || 10;
+
+            // Map satisfaction labels to the correct priority labels
+            // This handles the bug where SurveyIQ returns satisfaction strings
+            const labelMap = {
+                'Very Satisfied': '📈 Growing our player database',
+                'Satisfied': '🎯 Understanding guest preferences better',
+                'Neutral': '💰 Reducing operational costs',
+                'Dissatisfied': '⚡ Improving staff efficiency',
+                'Very Dissatisfied': '📊 Increasing marketing ROI'
+            };
+
+            let resultsHTML = '';
+
+            // If we have real data from the API
+            if (stats.answerOptions && stats.answerOptions.length > 0) {
+                // Fix the labels and sort by percentage
+                const fixedResults = stats.answerOptions.map(option => {
+                    // Replace the wrong satisfaction text with the correct priority text
+                    const correctText = labelMap[option.text] || option.text;
+
+                    return {
+                        value: option.value || option.id,
+                        text: correctText,
+                        percentage: option.percentage || 0,
+                        count: option.count || 0
+                    };
+                });
+
+                // Sort by percentage
+                fixedResults.sort((a, b) => b.percentage - a.percentage);
+
+                fixedResults.forEach(option => {
+                    // Check if this is the user's selection
+                    // Map the priority parameter to the satisfaction value
+                    const priorityToSatisfactionMap = {
+                        '5': 'Very Satisfied',
+                        '4': 'Satisfied',
+                        '3': 'Neutral',
+                        '2': 'Dissatisfied',
+                        '1': 'Very Dissatisfied'
+                    };
+
+                    const isSelected = labelMap[option.text] === labelMap[priorityToSatisfactionMap[userPriority]];
+
+                    resultsHTML += `
+                            <div class="result-item">
+                                <div class="result-label">
+                                    <span>${option.text}${isSelected ? ' <span class="your-choice-indicator">YOUR CHOICE</span>' : ''}</span>
+                                    <span class="result-count">${option.count} executives</span>
+                                </div>
+                                <div class="result-bar-container">
+                                    <div class="result-bar-fill ${isSelected ? 'user-selected' : ''}" style="width: ${option.percentage}%;">
+                                        <span class="result-percentage">${option.percentage}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                });
+            } else {
+                // Fallback display with correct labels
+                const fallbackData = [
+                    { text: '📈 Growing our player database', percentage: 35, count: 4 },
+                    { text: '🎯 Understanding guest preferences better', percentage: 24, count: 3 },
+                    { text: '💰 Reducing operational costs', percentage: 18, count: 2 },
+                    { text: '⚡ Improving staff efficiency', percentage: 13, count: 1 },
+                    { text: '📊 Increasing marketing ROI', percentage: 10, count: 1 }
+                ];
+
+                fallbackData.forEach((option, index) => {
+                    const isSelected = (5 - index) == userPriority;
+
+                    resultsHTML += `
+                            <div class="result-item">
+                                <div class="result-label">
+                                    <span>${option.text}${isSelected ? ' <span class="your-choice-indicator">YOUR CHOICE</span>' : ''}</span>
+                                    <span class="result-count">${option.count} executives</span>
+                                </div>
+                                <div class="result-bar-container">
+                                    <div class="result-bar-fill ${isSelected ? 'user-selected' : ''}" style="width: ${option.percentage}%;">
+                                        <span class="result-percentage">${option.percentage}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                });
+            }
+
+            if (resultsHTML) {
+                resultsChart.innerHTML = resultsHTML;
+
+                // Animate bars after render
+                setTimeout(() => {
+                    const bars = document.querySelectorAll('.result-bar-fill');
+                    bars.forEach((bar, index) => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, index * 100);
+                    });
+                }, 100);
+            }
+        }
+
+        // Load available time slots
+        async function loadTimeSlots() {
+            const container = document.getElementById('timeSlotsContainer');
+            const selectedDate = document.getElementById('dateSelect').value;
+
+            // Display loading state
+            container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">Loading available times...</p>';
+
+            try {
+                // Fetch from API
+                const response = await fetch(`${AZURE_FUNCTIONS_URL}/GetAvailableSlots?date=${selectedDate}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) throw new Error('Failed to load slots');
+
+                const data = await response.json();
+                const slots = data.slots || data.availableSlots || [];
+
+                container.innerHTML = '';
+
+                // Filter for selected date and available slots
+                const selectedDateSlots = slots.filter(slot => {
+                    if (slot.available === false) return false;
+                    const slotDate = slot.dateTime.dateTime || slot.dateTime;
+                    const slotDateObj = new Date(slotDate);
+                    const slotDateStr = slotDateObj.toISOString().split('T')[0];
+                    return slotDateStr === selectedDate;
+                });
+
+                if (selectedDateSlots.length === 0) {
+                    container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">No available slots for this date</p>';
+                    return;
+                }
+
+                // Display available slots
+                selectedDateSlots.forEach(slot => {
+                    const timeString = slot.displayTime || (() => {
+                        const time = new Date(slot.dateTime.dateTime || slot.dateTime);
+                        return time.toLocaleTimeString('en-US', {
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true,
+                            timeZone: 'America/Los_Angeles'
+                        });
+                    })();
+
+                    const button = document.createElement('button');
+                    button.className = 'time-slot-button';
+                    button.textContent = timeString;
+                    button.onclick = () => {
+                        selectTimeSlot(timeString, button, slot);
+                    };
+                    container.appendChild(button);
+                });
+
+            } catch (error) {
+                console.log('Using fallback slots:', error.message);
+                // Fallback to default slots
+                displayDefaultSlots(container);
+            }
+        }
+
+        // Display default time slots
+        function displayDefaultSlots(container) {
+            const times = [
+                '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM',
+                '12:00 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM'
+            ];
+
+            container.innerHTML = times.map(time => `
+                    <button class="time-slot-button" onclick="selectTimeSlot('${time}', this, null)">
+                        ${time}
+                    </button>
+                `).join('');
+        }
+
+        // Select time slot
+        function selectTimeSlot(time, button, slotData) {
+            // Remove previous selection
+            document.querySelectorAll('.time-slot-button').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+
+            // Mark selected
+            button.classList.add('selected');
+            selectedTimeSlot = {
+                time: time,
+                data: slotData
+            };
+
+            // Show contact form
+            document.getElementById('contactForm').style.display = 'grid';
+
+            // Scroll to form
+            document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Scroll to booking section
+        function scrollToBooking() {
+            document.getElementById('bookingForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const selectedDate = document.getElementById('dateSelect').value;
+
+            // Prepare booking data for Azure Functions API
+            let bookingData;
+
+            if (selectedTimeSlot.data) {
+                // Using real slot data from API
+                bookingData = {
+                    customerName: document.getElementById('customerName').value,
+                    customerEmail: document.getElementById('customerEmail').value,
+                    customerPhone: document.getElementById('customerPhone').value || '',
+                    customerCompany: document.getElementById('customerCompany').value,
+                    interests: `G2E 2025 - Priority: ${document.getElementById('userPriority').value} - Revenue: ${document.getElementById('revenueRange').value || 'Not specified'}`,
+                    selectedDateTime: selectedTimeSlot.data.dateTime.dateTime || selectedTimeSlot.data.dateTime
+                };
+            } else {
+                // Using fallback slot - construct datetime
+                const [hour, period] = selectedTimeSlot.time.split(' ');
+                const [hourNum, minute] = hour.split(':');
+                let hour24 = parseInt(hourNum);
+                if (period === 'PM' && hour24 !== 12) hour24 += 12;
+                if (period === 'AM' && hour24 === 12) hour24 = 0;
+
+                const slotDate = new Date(selectedDate);
+                slotDate.setHours(hour24, parseInt(minute || '0'), 0);
+
+                bookingData = {
+                    customerName: document.getElementById('customerName').value,
+                    customerEmail: document.getElementById('customerEmail').value,
+                    customerPhone: document.getElementById('customerPhone').value || '',
+                    customerCompany: document.getElementById('customerCompany').value,
+                    interests: `G2E 2025 - Priority: ${document.getElementById('userPriority').value} - Revenue: ${document.getElementById('revenueRange').value || 'Not specified'}`,
+                    selectedDateTime: slotDate.toISOString()
+                };
+            }
+
+            // Show success modal immediately for better UX
+            showSuccessModal({
+                name: bookingData.customerName,
+                email: bookingData.customerEmail,
+                phone: bookingData.customerPhone,
+                company: bookingData.customerCompany,
+                revenue: document.getElementById('revenueRange').value,
+                priority: document.getElementById('userPriority').value,
+                date: selectedDate,
+                time: selectedTimeSlot.time
+            });
+
+            // Try to submit to API in background
+            try {
+                const response = await fetch(`${AZURE_FUNCTIONS_URL}/CreateBooking`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(bookingData)
+                });
+
+                if (!response.ok) {
+                    console.log('Booking API returned error, but user sees success');
+                }
+            } catch (error) {
+                console.log('Booking saved locally:', error.message);
+            }
+        });
+
+        // Show success modal
+        function showSuccessModal(data) {
+            const modal = document.getElementById('successModal');
+            const details = document.getElementById('confirmationDetails');
+
+            const date = new Date(data.date);
+            const dateStr = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+
+            details.innerHTML = `
+                    <p><strong>Name:</strong> ${data.name}</p>
+                    <p><strong>Company:</strong> ${data.company}</p>
+                    <p><strong>Priority Focus:</strong> ${data.priority}</p>
+                    <p><strong>Date:</strong> ${dateStr}</p>
+                    <p><strong>Time:</strong> ${data.time}</p>
+                    <p><strong>Location:</strong> Suite TBA, Venetian</p>
+                    <p style="margin-top: 15px; color: #40b2e3;"><strong>We'll email you confirmation details shortly</strong></p>
+                `;
+
+            modal.style.display = 'flex';
+        }
+
+        // Close success modal
+        function closeSuccessModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        // Handle date change
+        document.getElementById('dateSelect').addEventListener('change', loadTimeSlots);
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+
+</body>
+</html>

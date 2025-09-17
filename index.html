@@ -1869,62 +1869,88 @@
             }, 1500);
         }
 
+
+
         function displayRealResults(stats, userAnswer) {
             const resultsContainer = document.getElementById('resultsChart');
 
-            // Map answer values to text
-            const answerMap = {
-                5: 'Growing our player database',
-                4: 'Understanding guest preferences better',
-                3: 'Reducing operational costs',
-                2: 'Improving staff efficiency',
-                1: 'Increasing marketing ROI'
+            // Map satisfaction labels to the correct priority labels
+            // This handles the bug where SurveyIQ returns satisfaction strings
+            const labelMap = {
+                'Very Satisfied': '📈 Growing our player database',
+                'Satisfied': '🎯 Understanding guest preferences better',
+                'Neutral': '💰 Reducing operational costs',
+                'Dissatisfied': '⚡ Improving staff efficiency',
+                'Very Dissatisfied': '📊 Increasing marketing ROI'
             };
 
             let resultsHTML = `
-                    <div style="text-align: left;">
-                        <p style="text-align: center; color: #666; margin-bottom: 20px;">
-                            <strong>${stats.totalResponses || 0}</strong> casino executives have responded
-                        </p>
-                `;
+        <div style="text-align: left;">
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                <strong>${stats.totalResponses || 0}</strong> casino executives have responded
+            </p>
+    `;
 
             // If we have real data from the API
             if (stats.answerOptions && stats.answerOptions.length > 0) {
-                stats.answerOptions.forEach((option) => {
-                    const isSelected = option.text === userAnswer;
-                    const percentage = option.percentage || Math.round((option.count / stats.totalResponses) * 100) || 0;
+                // Fix the labels and sort by percentage
+                const fixedResults = stats.answerOptions.map(option => {
+                    // Replace the wrong satisfaction text with the correct priority text
+                    const correctText = labelMap[option.text] || option.text;
+
+                    return {
+                        text: correctText,
+                        percentage: option.percentage || 0,
+                        count: option.count || 0
+                    };
+                });
+
+                // Sort by percentage
+                fixedResults.sort((a, b) => b.percentage - a.percentage);
+
+                fixedResults.forEach(option => {
+                    const isSelected = option.text === labelMap[userAnswer] ||
+                        option.text.includes(userAnswer);
 
                     resultsHTML += `
-                            <div class="result-bar" style="margin: 15px 0; ${isSelected ? 'border: 2px solid #40b2e3;' : ''}">
-                                <div class="result-fill" style="width: ${percentage}%;">
-                                </div>
-                                <div class="result-label">${option.text}</div>
-                                <div class="result-percentage">${percentage}% (${option.count || 0} votes)</div>
-                            </div>
-                        `;
+                <div class="result-bar" style="margin: 15px 0; ${isSelected ? 'border: 2px solid #40b2e3;' : ''}">
+                    <div class="result-fill" style="width: ${option.percentage}%;">
+                    </div>
+                    <div class="result-label">${option.text}</div>
+                    <div class="result-percentage">${option.percentage}% (${option.count || 0} votes)</div>
+                </div>
+            `;
                 });
             } else {
-                // Show message if no data yet
-                Object.values(answerMap).forEach((text) => {
+                // Fallback if no data
+                const answerMap = {
+                    'Growing our player database': 100,
+                    'Understanding guest preferences better': 0,
+                    'Reducing operational costs': 0,
+                    'Improving staff efficiency': 0,
+                    'Increasing marketing ROI': 0
+                };
+
+                Object.keys(answerMap).forEach((text) => {
                     const isSelected = text === userAnswer;
                     resultsHTML += `
-                            <div class="result-bar" style="margin: 15px 0; ${isSelected ? 'border: 2px solid #40b2e3;' : ''}">
-                                <div class="result-fill" style="width: ${isSelected ? '100%' : '0%'};">
-                                </div>
-                                <div class="result-label">${text}</div>
-                                <div class="result-percentage">${isSelected ? '100%' : '0%'}</div>
-                            </div>
-                        `;
+                <div class="result-bar" style="margin: 15px 0; ${isSelected ? 'border: 2px solid #40b2e3;' : ''}">
+                    <div class="result-fill" style="width: ${isSelected ? '100%' : '0%'};">
+                    </div>
+                    <div class="result-label">📈 ${text}</div>
+                    <div class="result-percentage">${isSelected ? '100%' : '0%'}</div>
+                </div>
+            `;
                 });
             }
 
             resultsHTML += `
-                    </div>
-                    <div style="margin-top: 25px; padding: 15px; background: rgba(64, 178, 227, 0.1); border-radius: 10px;">
-                        <p style="color: #005b8c; font-weight: bold; margin-bottom: 5px;">You selected: "${userAnswer}"</p>
-                        <p style="color: #666; font-size: 0.9em;">Your response has been recorded - this is live SurveyIQ data!</p>
-                    </div>
-                `;
+        </div>
+        <div style="margin-top: 25px; padding: 15px; background: rgba(64, 178, 227, 0.1); border-radius: 10px;">
+            <p style="color: #005b8c; font-weight: bold; margin-bottom: 5px;">You selected: "${userAnswer}"</p>
+            <p style="color: #666; font-size: 0.9em;">Your response has been recorded - this is live SurveyIQ data!</p>
+        </div>
+    `;
 
             resultsContainer.innerHTML = resultsHTML;
 
@@ -1940,6 +1966,8 @@
                 });
             }, 100);
         }
+
+
 
         // Wait for DOM to be ready
         document.addEventListener('DOMContentLoaded', function () {
