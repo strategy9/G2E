@@ -11,7 +11,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="shortcut icon" href="https://g2e2025.strategy9.com/favicon.svg" />
+    <link rel="shortcut icon" href="https://g2e2025.strategy9.com/G2E/favicon.svg" />
 
     <style>
         * {
@@ -80,6 +80,7 @@
 
         .results-subheadline {
             font-size: 1.2em;
+			font-weight: 400;
             color: #666;
             max-width: 600px;
             margin: 0 auto;
@@ -321,6 +322,34 @@
             border-color: var(--secondary-color);
         }
 
+		    /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+		
+		
         .cta-button {
             padding: 20px 50px;
             font-size: 1.2em;
@@ -493,6 +522,9 @@
         <p class="results-subheadline" id="dynamicSubheadline">
             See how other casino leaders answered and discover proven solutions for your biggest challenge
         </p>
+        <button class="cta-button" style="margin-top: 20px; display: inline-block;" onclick="scrollToBooking()">
+            📅 BOOK YOUR G2E DISCUSSION NOW
+        </button>
     </section>
 
     <!-- Live Results Display -->
@@ -544,6 +576,7 @@
                 <div class="result-bar-container">
                     <div class="result-bar-fill" style="width: 13%;">
                         <span class="result-percentage">13%</span>
+
                     </div>
                 </div>
             </div>
@@ -714,6 +747,25 @@
             </div>
         </div>
     </section>
+	<!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="mailto:info@strategy9.com">info@strategy9.com</a>
+            <a href="tel:+18558383999">855.838.3999</a>
+            <a href="https://strategy9.com">strategy9.com</a>
+        </div>
+
+        <p style="margin-top: 20px; opacity: 0.8;">
+            Strategy9 - Casino & Hospitality Technology Since 1999<br>
+            <img src="https://g2e2025.strategy9.com/soc2.png" alt="SOC2 Type 1 Certified" style="height: 30px; margin-top: 10px; opacity: 0.9;">
+      </p>
+
+        <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.6;">
+            G2E 2025 | October 7-9 | The Venetian Expo | Suite TBD
+        </p>
+        
+        <p style="color: #aaa; margin-top: 20px; font-size: 11px;">© 2025 Strategy9 Inc. All rights reserved. Strategy9®, PlayerIQ®, and other marks are registered trademarks.</p>
+    </footer>
 
     <!-- Success Modal -->
     <div class="success-modal" id="successModal">
