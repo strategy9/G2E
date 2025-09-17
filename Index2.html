@@ -11,7 +11,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="shortcut icon" href="/G2E/favicon.svg" />
+    <link rel="shortcut icon" href="https://g2e2025.strategy9.com/G2E/favicon.svg" />
 
     <style>
         * {
@@ -242,7 +242,7 @@
         /* Solutions Grid */
         .solutions-section {
             background: var(--light-bg);
-            padding: 80px 20px;`
+            padding: 80px 20px;
         }
 
         .solutions-grid {
@@ -1490,4 +1490,24 @@
                 const fallbackTimes = ['9:00 AM', '10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM', '4:00 PM'];
                 fallbackTimes.forEach(time => {
                     const button = document.createElement('button');
-                    button.style.cssText = 'padding: 10px; border: 2px solid #40b2e3; background: white
+                    button.style.cssText = 'padding: 10px; border: 2px solid #40b2e3; background: white; color: #005b8c; border-radius: 10px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;';
+                    button.textContent = time;
+                    button.onmouseover = () => {
+                        button.style.background = '#40b2e3';
+                        button.style.color = 'white';
+                    };
+                    button.onmouseout = () => {
+                        button.style.background = 'white';
+                        button.style.color = '#005b8c';
+                    };
+                    button.onclick = () => {
+                        const mockSlot = {
+                            dateTime: {
+                                dateTime: `${selectedDate}T${convertTo24Hour(time)}:00`,
+                                timeZone: 'America/Los_Angeles'
+                            }
+                        };
+                        selectTimeSlot(mockSlot, time);
+                    };
+                    container.appendChild(button);
+                });
