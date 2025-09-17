@@ -11,7 +11,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="shortcut icon" href="/G2E/favicon.svg" />
+    <link rel="shortcut icon" href="https://g2e2025.strategy9.com/G2E/favicon.svg" />
 
     <style>
         * {
@@ -176,6 +176,296 @@
             margin-right: auto;
         }
 
+        /* Enhanced Pain Points Carousel */
+        .pain-carousel-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.08),
+                0 10px 30px rgba(0,91,140,0.05),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+            overflow: hidden;
+            border: 1px solid rgba(0,91,140,0.1);
+        }
+
+        .pain-carousel-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(64,178,227,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pain-carousel {
+            position: relative;
+            min-height: 380px;
+            overflow: hidden;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .pain-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 40px;
+            align-items: start;
+            opacity: 0;
+            transform: translateX(60px) scale(0.95);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .pain-slide.active {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .pain-slide.prev {
+            opacity: 0;
+            transform: translateX(-60px) scale(0.95);
+        }
+
+        .pain-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
+            color: white;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 
+                0 10px 30px rgba(0, 91, 140, 0.25),
+                0 5px 15px rgba(64, 178, 227, 0.2),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .pain-number::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, #40b2e3, #005b8c);
+            border-radius: 28px;
+            opacity: 0;
+            z-index: -1;
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+        }
+
+        .pain-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .pain-title {
+            font-size: 2rem;
+            color: #005b8c;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        .pain-problem {
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, rgba(231, 76, 60, 0.1) 100%);
+            border-left: 5px solid #e74c3c;
+            border-radius: 15px;
+            line-height: 1.7;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(231, 76, 60, 0.1);
+        }
+
+        .pain-problem::before {
+            content: '⚠';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.15;
+        }
+
+        .pain-problem strong {
+            color: #c0392b;
+            font-weight: 600;
+        }
+
+        .pain-solution {
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(64, 178, 227, 0.05) 0%, rgba(64, 178, 227, 0.12) 100%);
+            border-left: 5px solid #40b2e3;
+            border-radius: 15px;
+            line-height: 1.7;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(64, 178, 227, 0.15);
+        }
+
+        .pain-solution::before {
+            content: '✓';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.2;
+            color: #40b2e3;
+        }
+
+        .pain-solution strong {
+            color: #005b8c;
+            font-weight: 600;
+        }
+
+        .carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .carousel-btn {
+            width: 55px;
+            height: 55px;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                       linear-gradient(135deg, #005b8c, #40b2e3) border-box;
+            color: #005b8c;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(64, 178, 227, 0.3);
+            background: linear-gradient(135deg, #005b8c, #40b2e3) padding-box,
+                       linear-gradient(135deg, #005b8c, #40b2e3) border-box;
+            color: white;
+        }
+
+        .carousel-btn:active {
+            transform: scale(1.05);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e0;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .dot:hover {
+            background: #94a3b8;
+            transform: scale(1.3);
+        }
+
+        .dot.active {
+            width: 28px;
+            height: 12px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #005b8c, #40b2e3);
+            transform: scale(1);
+            box-shadow: 0 2px 8px rgba(64, 178, 227, 0.4);
+        }
+
+        .carousel-progress {
+            margin-top: 25px;
+            height: 6px;
+            background: linear-gradient(90deg, #e2e8f0, #f1f5f9);
+            border-radius: 3px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #005b8c 0%, #40b2e3 100%);
+            border-radius: 3px;
+            width: 10%;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(64, 178, 227, 0.3);
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 30%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4));
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
         /* Quick Wins Timeline */
         .timeline-section {
             background: white;
@@ -242,7 +532,7 @@
         /* Solutions Grid */
         .solutions-section {
             background: var(--light-bg);
-            padding: 80px 20px;`
+            padding: 80px 20px;
         }
 
         .solutions-grid {
@@ -473,6 +763,18 @@
             }
         }
 
+        /* Guarantee Badge */
+        .guarantee-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--success-color), #229954);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero-headline {
@@ -511,188 +813,45 @@
             .solutions-grid {
                 grid-template-columns: 1fr;
             }
-        }
 
-        /* Pain Points Carousel - Keeping your original implementation */
-        .pain-carousel-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
+            .pain-carousel-container {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
 
-        .pain-carousel {
-            position: relative;
-            height: 350px;
-            overflow: hidden;
-        }
+            .pain-carousel {
+                min-height: auto;
+                padding: 20px;
+            }
 
-        .pain-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 30px;
-            align-items: center;
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .pain-slide.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .pain-slide.prev {
-            opacity: 0;
-            transform: translateX(-100px);
-        }
-
-        .pain-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            flex-shrink: 0;
-            box-shadow: 0 5px 15px rgba(0, 91, 140, 0.3);
-        }
-
-        .pain-content {
-            display: grid;
-            gap: 20px;
-        }
-
-        .pain-title {
-            font-size: 1.8rem;
-            color: #005b8c;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .pain-problem {
-            padding: 20px;
-            background: rgba(231, 76, 60, 0.1);
-            border-left: 4px solid #e74c3c;
-            border-radius: 8px;
-            line-height: 1.6;
-        }
-
-        .pain-solution {
-            padding: 20px;
-            background: rgba(64, 178, 227, 0.1);
-            border-left: 4px solid #40b2e3;
-            border-radius: 8px;
-            line-height: 1.6;
-        }
-
-        .carousel-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .carousel-btn {
-            width: 50px;
-            height: 50px;
-            border: none;
-            background: linear-gradient(135deg, #005b8c 0%, #40b2e3 100%);
-            color: white;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(64, 178, 227, 0.4);
-        }
-
-        .carousel-dots {
-            display: flex;
-            gap: 10px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ddd;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: #40b2e3;
-            transform: scale(1.2);
-        }
-
-        .carousel-progress {
-            margin-top: 20px;
-            height: 4px;
-            background: #eee;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #005b8c 0%, #40b2e3 100%);
-            border-radius: 2px;
-            width: 10%;
-            transition: width 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
             .pain-slide {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
                 text-align: center;
-                height: auto;
-                min-height: 350px;
+                padding: 20px;
             }
 
             .pain-number {
                 margin: 0 auto;
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
             }
 
             .pain-title {
+                font-size: 1.5rem;
+            }
+
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
                 font-size: 1.4rem;
             }
-        }
 
-        /* Guarantee Badge */
-        .guarantee-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--success-color), #229954);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            .carousel-dots {
+                gap: 8px;
+                padding: 8px 15px;
+            }
         }
     </style>
 </head>
@@ -1236,6 +1395,58 @@
     </div>
 
     <script>
+        // Carousel functionality
+        let slideIndex = 1;
+        let autoSlideTimer;
+
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('pain-slide');
+            const dots = document.getElementsByClassName('dot');
+            const progressBar = document.querySelector('.progress-bar');
+
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active', 'prev');
+                if (i < slideIndex - 1) {
+                    slides[i].classList.add('prev');
+                }
+            }
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+
+            slides[slideIndex - 1].classList.add('active');
+            dots[slideIndex - 1].classList.add('active');
+            
+            // Update progress bar
+            const progressWidth = (slideIndex / slides.length) * 100;
+            progressBar.style.width = progressWidth + '%';
+
+            // Reset auto-slide timer
+            clearTimeout(autoSlideTimer);
+            autoSlideTimer = setTimeout(() => nextSlide(), 7000);
+        }
+
+        function nextSlide() {
+            showSlide(slideIndex += 1);
+        }
+
+        function prevSlide() {
+            showSlide(slideIndex -= 1);
+        }
+
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+
+        // Initialize carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlide(slideIndex);
+        });
+
         // Azure Functions API Configuration
         const AZURE_FUNCTIONS_URL = 'https://g2e-bookings-api-fah8f2afd6eecsa2.westus-01.azurewebsites.net/api';
         let selectedTimeSlot = null;
@@ -1490,4 +1701,45 @@
                 const fallbackTimes = ['9:00 AM', '10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM', '4:00 PM'];
                 fallbackTimes.forEach(time => {
                     const button = document.createElement('button');
-                    button.style.cssText = 'padding: 10px; border: 2px solid #40b2e3; background: white
+                    button.style.cssText = 'padding: 10px; border: 2px solid #40b2e3; background: white; color: #005b8c; border-radius: 10px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;';
+                    button.textContent = time;
+                    button.onmouseover = () => {
+                        button.style.background = '#40b2e3';
+                        button.style.color = 'white';
+                    };
+                    button.onmouseout = () => {
+                        button.style.background = 'white';
+                        button.style.color = '#005b8c';
+                    };
+                    button.onclick = () => {
+                        const [hour, period] = time.split(' ');
+                        const [hourNum, minute] = hour.split(':');
+                        let hour24 = parseInt(hourNum);
+                        if (period === 'PM' && hour24 !== 12) hour24 += 12;
+                        if (period === 'AM' && hour24 === 12) hour24 = 0;
+                        
+                        const slotDate = new Date(selectedDate);
+                        slotDate.setHours(hour24, parseInt(minute || '0'), 0);
+                        
+                        const bookingSlot = {
+                            dateTime: {
+                                dateTime: slotDate.toISOString(),
+                                timeZone: 'America/Los_Angeles'
+                            }
+                        };
+                        selectTimeSlot(bookingSlot, time);
+                    };
+                    container.appendChild(button);
+                });
+            }
+        }
+
+        // Select time slot
+        function selectTimeSlot(slot, displayTime) {
+            selectedTimeSlot = slot;
+            document.getElementById('timeSlotSection').style.display = 'none';
+            document.getElementById('contactFormSection').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
