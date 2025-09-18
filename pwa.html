@@ -1572,7 +1572,7 @@
 
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/G2E/sw.js', { scope: '/G2E/' })
+            navigator.serviceWorker.register('/sw.js', { scope: '/' })
                 .then(reg => {
                     console.log('Service Worker registered');
 
