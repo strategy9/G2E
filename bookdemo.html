@@ -800,8 +800,9 @@
             selectedTimeSlot.displayTime = timeString;
 
             // Update selected time display
-            const selectedDate = document.getElementById('dateSelect').value;
-            const dateObj = new Date(selectedDate);
+            // Update selected time display
+            const slotDateTime = slot.dateTime.dateTime || slot.dateTime;
+            const dateObj = new Date(slotDateTime);
             const dateString = dateObj.toLocaleDateString('en-US', {
                 weekday: 'long',
                 month: 'long',
